@@ -18,7 +18,8 @@
         android:text="@string/buttonMainEU"
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
-        android:background="@color/colorPrimary" />
+        android:background="@color/colorPrimary"
+        android:onClick="toMenu"/>
 
     <ImageView
         android:id="@+id/imageView"
@@ -36,5 +37,6 @@
         android:text="@string/buttonMainES"
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
-        android:background="@color/colorPrimary" />
+        android:background="@color/colorPrimary"
+        android:onClick="toMenu"/>
 </LinearLayout>

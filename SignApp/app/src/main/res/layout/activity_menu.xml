@@ -10,52 +10,57 @@
 
     <Button
         android:id="@+id/buttonGenInfo"
-        android:layout_width="184dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@color/colorPrimary"
         android:text="@string/genInfoButton"
         android:textColor="@color/buttonTextColor"
-        android:textSize="@dimen/buttonTextSize" />
+        android:textSize="@dimen/buttonTextSize"
+        android:onClick="toGeninfo"/>
 
     <Button
         android:id="@+id/buttonTraductor"
-        android:layout_width="184dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/buttonMargin"
         android:text="@string/traductButton"
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
-        android:background="@color/colorPrimary" />
+        android:background="@color/colorPrimary"
+        android:onClick="toTraductor"/>
     <Button
         android:id="@+id/buttonAlphab"
-        android:layout_width="184dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/buttonMargin"
         android:text="@string/alphabButton"
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
-        android:background="@color/colorPrimary" />
+        android:background="@color/colorPrimary"
+        android:onClick="toAlphab"/>
     <Button
         android:id="@+id/buttonForum"
-        android:layout_width="184dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/buttonMargin"
         android:text="@string/forumButton"
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
-        android:background="@color/colorPrimary" />
+        android:background="@color/colorPrimary"
+        android:onClick="toForum"/>
     <Button
         android:id="@+id/buttonRecordVideo"
-        android:layout_width="184dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/buttonMargin"
         android:text="@string/videoButton"
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
-        android:background="@color/colorPrimary" />
+        android:background="@color/colorPrimary"
+        android:onClick="recordVideo"/>
 </LinearLayout>

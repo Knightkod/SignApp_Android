@@ -13,7 +13,13 @@
         android:textSize="@dimen/titleSize"
         android:textColor="@color/textColor"
         android:textStyle="bold"/>
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
     <Button
         android:id="@+id/buttonTraductVideo1"
         android:layout_width="match_parent"
@@ -23,7 +29,8 @@
         android:text="@string/fraseTrad1"
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
-        android:background="@color/colorPrimary" />
+        android:background="@color/colorPrimary"
+        android:onClick="viewVideo"/>
     <Button
         android:id="@+id/buttonTraductVideo2"
         android:layout_width="match_parent"
@@ -33,7 +40,8 @@
         android:text="@string/fraseTrad2"
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
-        android:background="@color/colorPrimary" />
+        android:background="@color/colorPrimary"
+        android:onClick="viewVideo" />
     <Button
         android:id="@+id/buttonTraductVideo3"
         android:layout_width="match_parent"
@@ -43,7 +51,8 @@
         android:text="@string/fraseTrad3"
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
-        android:background="@color/colorPrimary" />
+        android:background="@color/colorPrimary"
+        android:onClick="viewVideo"/>
     <Button
         android:id="@+id/buttonTraductVideo4"
         android:layout_width="match_parent"
@@ -53,7 +62,8 @@
         android:text="@string/fraseTrad4"
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
-        android:background="@color/colorPrimary" />
+        android:background="@color/colorPrimary"
+        android:onClick="viewVideo" />
     <Button
         android:id="@+id/buttonTraductVideo5"
         android:layout_width="match_parent"
@@ -63,7 +73,8 @@
         android:text="@string/fraseTrad5"
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
-        android:background="@color/colorPrimary" />
+        android:background="@color/colorPrimary"
+        android:onClick="viewVideo"/>
     <Button
         android:id="@+id/buttonTraductVideo6"
         android:layout_width="match_parent"
@@ -73,7 +84,8 @@
         android:text="@string/fraseTrad6"
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
-        android:background="@color/colorPrimary" />
+        android:background="@color/colorPrimary"
+        android:onClick="viewVideo"/>
     <Button
         android:id="@+id/buttonTraductVideo7"
         android:layout_width="match_parent"
@@ -83,7 +95,8 @@
         android:text="@string/fraseTrad7"
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
-        android:background="@color/colorPrimary" />
+        android:background="@color/colorPrimary"
+        android:onClick="viewVideo" />
     <Button
         android:id="@+id/buttonTraductVideo8"
         android:layout_width="match_parent"
@@ -93,7 +106,8 @@
         android:text="@string/fraseTrad8"
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
-        android:background="@color/colorPrimary" />
+        android:background="@color/colorPrimary"
+        android:onClick="viewVideo" />
     <Button
         android:id="@+id/buttonTraductVideo9"
         android:layout_width="match_parent"
@@ -103,7 +117,8 @@
         android:text="@string/fraseTrad9"
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
-        android:background="@color/colorPrimary" />
+        android:background="@color/colorPrimary"
+        android:onClick="viewVideo" />
     <Button
         android:id="@+id/buttonTraductVideo10"
         android:layout_width="match_parent"
@@ -113,7 +128,9 @@
         android:text="@string/fraseTrad10"
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
-        android:background="@color/colorPrimary" />
-
+        android:background="@color/colorPrimary"
+        android:onClick="viewVideo" />
+    </LinearLayout>
+</ScrollView>
 
 </LinearLayout>

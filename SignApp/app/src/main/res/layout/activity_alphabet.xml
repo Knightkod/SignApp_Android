@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/alphabetLayout"
+    tools:context="eus.ehu.intel.signapp.TraductorActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/alphabButton"
+        android:textSize="@dimen/titleSize"
+        android:textColor="@color/textColor"
+        android:textStyle="bold"/>
+
+    <ScrollView
+        android:id="@+id/alphabetScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+       <LinearLayout
+           android:id="@+id/alphabetScrollLinLayout"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical">
+
+       </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
