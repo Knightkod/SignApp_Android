@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="eus.ehu.intel.signapp.GeninfoActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/genInfoButton"
+        android:textSize="@dimen/titleSize"
+        android:textColor="@color/textColor"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/standardViewMargin"
+        android:text="@string/genInfo1"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/textSize"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/standardViewMargin"
+        android:text="@string/genInfo2"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/textSize"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/standardViewMargin"
+        android:text="@string/genInfo3"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/textSize"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/standardViewMargin"
+        android:text="@string/genInfo4"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/textSize"/>
+</LinearLayout>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="eus.ehu.intel.signapp.TraductorActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/traductButton"
+        android:textSize="@dimen/titleSize"
+        android:textColor="@color/textColor"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/buttonTraductVideo1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/buttonMargin"
+        android:text="@string/fraseTrad1"
+        android:textColor="@color/buttonTextColor"
+        android:textSize="@dimen/buttonTextSize"
+        android:background="@color/colorPrimary" />
+    <Button
+        android:id="@+id/buttonTraductVideo2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/buttonMargin"
+        android:text="@string/fraseTrad2"
+        android:textColor="@color/buttonTextColor"
+        android:textSize="@dimen/buttonTextSize"
+        android:background="@color/colorPrimary" />
+    <Button
+        android:id="@+id/buttonTraductVideo3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/buttonMargin"
+        android:text="@string/fraseTrad3"
+        android:textColor="@color/buttonTextColor"
+        android:textSize="@dimen/buttonTextSize"
+        android:background="@color/colorPrimary" />
+    <Button
+        android:id="@+id/buttonTraductVideo4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/buttonMargin"
+        android:text="@string/fraseTrad4"
+        android:textColor="@color/buttonTextColor"
+        android:textSize="@dimen/buttonTextSize"
+        android:background="@color/colorPrimary" />
+    <Button
+        android:id="@+id/buttonTraductVideo5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/buttonMargin"
+        android:text="@string/fraseTrad5"
+        android:textColor="@color/buttonTextColor"
+        android:textSize="@dimen/buttonTextSize"
+        android:background="@color/colorPrimary" />
+    <Button
+        android:id="@+id/buttonTraductVideo6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/buttonMargin"
+        android:text="@string/fraseTrad6"
+        android:textColor="@color/buttonTextColor"
+        android:textSize="@dimen/buttonTextSize"
+        android:background="@color/colorPrimary" />
+    <Button
+        android:id="@+id/buttonTraductVideo7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/buttonMargin"
+        android:text="@string/fraseTrad7"
+        android:textColor="@color/buttonTextColor"
+        android:textSize="@dimen/buttonTextSize"
+        android:background="@color/colorPrimary" />
+    <Button
+        android:id="@+id/buttonTraductVideo8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/buttonMargin"
+        android:text="@string/fraseTrad8"
+        android:textColor="@color/buttonTextColor"
+        android:textSize="@dimen/buttonTextSize"
+        android:background="@color/colorPrimary" />
+    <Button
+        android:id="@+id/buttonTraductVideo9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/buttonMargin"
+        android:text="@string/fraseTrad9"
+        android:textColor="@color/buttonTextColor"
+        android:textSize="@dimen/buttonTextSize"
+        android:background="@color/colorPrimary" />
+    <Button
+        android:id="@+id/buttonTraductVideo10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/buttonMargin"
+        android:text="@string/fraseTrad10"
+        android:textColor="@color/buttonTextColor"
+        android:textSize="@dimen/buttonTextSize"
+        android:background="@color/colorPrimary" />
+
+
+</LinearLayout>
