@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SignApp</string>
+
+    <string name="welcome">Kaixo</string>
+    <string name="back">Atzera</string>
+    <string name="genInfoButton">Informazio orokorra</string>
+    <string name="traductButton">Itzultzailea</string>
+    <string name="alphabButton">Alfabetoa</string>
+    <string name="forumButton">Foroa</string>
+    <string name="videoButton">Bideoa grabatu</string>
+    <string name="videoGrabado">Zure bideoa</string>
+    <string name="makeQuestButton">Galdera bidali</string>
+    <string name="sendButton">Bidali</string>
+    <string name="registerButton">Registratu</string>
+    <string name="loginOK">Kaixo</string>
+    <string name="loginRegOK">Registroa ondo egin da</string>
+    <string name="loginRegNOK">Datu okerrak, mesedez sartu berriro</string>
+    <string name="genInfo1">Zenbat pertsona gor daude munduan?</string>
+    <string name="genInfo2">Nahiko zenuke zeinu hizkuntza jakin barik pertsona gor batekin komunikatzeko zenbait aholku jasotzea?</string>
+    <string name="genInfo3">Zeinu hizkuntza denak berdinak dira?</string>
+    <string name="genInfo4">Pertsona gorrek dantza egin ahal dute?</string>
+    <string name="question">Zure galderak</string>
+    <string name="resp">Beste pertsonen galderak</string>
+    <string name="cxerr">Ez dago konexiorik</string>
+    <string name="noQuest">Ez daude galderarik</string>
+    <string name="questSendOk">Galdera ondo bidali da</string>
+    <string name="questSendErr">Galdera hau ezin da prozesatu</string>
+    <string name="respSendOk">Erantzuna ondo bidali da</string>
+    <string name="respSendErr">Erantzun hau ezin da prozesatu</string>
+    <string name="infoTitleUploadVideo">Erantzuna igotzeko pausoak</string>
+    <string name="step1">Menu nagusian agertzen den “Bideoa grabatu” botoiaren bidez bideoa grabatu</string>
+    <string name="step2">“Dropbox” aplikazioan sartu eta “Igo bideoak eta irudiak” aukera sakatu</string>
+    <string name="step3">Igoko den artxiboaren helbidea aukeratu eta “Partekatu” botoia sakatu</string>
+    <string name="step4">Dokumentuaren esteka sortu eta “Esteka kopiatu” aukeratu</string>
+    <string name="step5">Signapp aplikazioan bidaliko den erantzunera jo. Bertan, esteka kopiatu eta “Bidali” botoiara eman</string>
+    <string name="fraseTrad1">Kaixo, zer moduz?</string>
+    <string name="fraseTrad2">Barkatu, zer ordu da?</string>
+    <string name="fraseTrad3">Eskerrik asko!</string>
+    <string name="fraseTrad4">Egun on, espero dut egun on bat izan dezazula!</string>
+    <string name="fraseTrad5">Arratsalde on, zenbat kostatzen du ______?</string>
+    <string name="fraseTrad6">Gabon, deskantsa ezazu!</string>
+    <string name="fraseTrad7">Mesedez</string>
+    <string name="fraseTrad8">Nola deitzen zara?</string>
+    <string name="fraseTrad9">Pozten naiz zu ezagutzeaz</string>
+    <string name="fraseTrad10">Barkatu</string>
+</resources>

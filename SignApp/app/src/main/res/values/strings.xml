@@ -1,3 +1,53 @@
 <resources>
     <string name="app_name">SignApp</string>
+
+    <string name="buttonMainEU">Euskera</string>
+    <string name="buttonMainES">Castellano</string>
+
+    <string name="buttonEU">EU</string>
+    <string name="buttonES">ES</string>
+
+    <string name="welcome">Hola</string>
+    <string name="back">Atrás</string>
+    <string name="genInfoButton">Información general</string>
+    <string name="traductButton">Traductor</string>
+    <string name="alphabButton">Alfabeto</string>
+    <string name="forumButton">Foro</string>
+    <string name="videoButton">Grabar video</string>
+    <string name="videoGrabado">Tu video</string>
+    <string name="makeQuestButton">Enviar Pregunta</string>
+    <string name="sendButton">Enviar</string>
+    <string name="registerButton">Registrate</string>
+    <string name="loginOK">Bienvenido</string>
+    <string name="loginRegOK">Registro completado</string>
+    <string name="loginRegNOK">Datos incorrectos, introduzcalos de nuevo por favor</string>
+    <string name="genInfo1">¿Cuántas personas con problemas auditivos hay en el mundo?</string>
+    <string name="genInfo2">¿Te gustaría conocer algunos consejos para hablar con una persona sorda sin saber lenguaje de signos?</string>
+    <string name="genInfo3">¿Todas las lenguas de signos son iguales?</string>
+    <string name="genInfo4">¿Bailan los sordos?</string>
+    <string name="question">Tus preguntas</string>
+    <string name="resp">Preguntas de otros usuarios</string>
+    <string name="cxerr">No hay conexión a Internet</string>
+    <string name="noQuest">No hay preguntas disponibles</string>
+    <string name="questSendOk">La pregunta se ha enviado correctamente</string>
+    <string name="questSendErr">La pregunta no se ha podido enviar</string>
+    <string name="respSendOk">La respuesta se ha enviado correctamente</string>
+    <string name="respSendErr">La respuesta no se ha podido enviar</string>
+    <string name="infoTitleUploadVideo">Pasos para subir una respuesta</string>
+    <string name="step1">Grabar un video con el botón de grabar video del menú</string>
+    <string name="step2">Entrar a la app de Dropbox y usar la opción "Subir fotos o videos"</string>
+    <string name="step3">Elegir las opciones del fichero subido y elegir "Compartir"</string>
+    <string name="step4">Crear un enlace y elegir la opción "copiar enlace"</string>
+    <string name="step5">Ir a SignApp y elegir la pregunta que se quiere responder. Pegar el enlace y enviar</string>
+    <string name="fraseTrad1">Hola, ¿qué tal estás?</string>
+    <string name="fraseTrad2">Perdona, ¿qué hora es?</string>
+    <string name="fraseTrad3">¡Muchas gracias!</string>
+    <string name="fraseTrad4">Buenos días, ¡que tenga un día genial!</string>
+    <string name="fraseTrad5">Buenas tardes, ¿cuánto cuesta ___?</string>
+    <string name="fraseTrad6">Buenas noches, ¡que descanses!</string>
+    <string name="fraseTrad7">Por favor</string>
+    <string name="fraseTrad8">¿Cómo te llamas?</string>
+    <string name="fraseTrad9">¡Encantado de conocerte!</string>
+    <string name="fraseTrad10">Disculpe</string>
+
 </resources>
