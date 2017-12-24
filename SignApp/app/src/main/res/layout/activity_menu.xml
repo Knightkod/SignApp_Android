@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    tools:context="eus.ehu.intel.signapp.MenuActivity">
+
+    <Button
+        android:id="@+id/buttonGenInfo"
+        android:layout_width="184dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/colorPrimary"
+        android:text="@string/genInfoButton"
+        android:textColor="@color/buttonTextColor"
+        android:textSize="@dimen/buttonTextSize" />
+
+    <Button
+        android:id="@+id/buttonTraductor"
+        android:layout_width="184dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/buttonMargin"
+        android:text="@string/traductButton"
+        android:textColor="@color/buttonTextColor"
+        android:textSize="@dimen/buttonTextSize"
+        android:background="@color/colorPrimary" />
+    <Button
+        android:id="@+id/buttonAlphab"
+        android:layout_width="184dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/buttonMargin"
+        android:text="@string/alphabButton"
+        android:textColor="@color/buttonTextColor"
+        android:textSize="@dimen/buttonTextSize"
+        android:background="@color/colorPrimary" />
+    <Button
+        android:id="@+id/buttonForum"
+        android:layout_width="184dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/buttonMargin"
+        android:text="@string/forumButton"
+        android:textColor="@color/buttonTextColor"
+        android:textSize="@dimen/buttonTextSize"
+        android:background="@color/colorPrimary" />
+    <Button
+        android:id="@+id/buttonRecordVideo"
+        android:layout_width="184dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/buttonMargin"
+        android:text="@string/videoButton"
+        android:textColor="@color/buttonTextColor"
+        android:textSize="@dimen/buttonTextSize"
+        android:background="@color/colorPrimary" />
+</LinearLayout>
