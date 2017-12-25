@@ -27,7 +27,8 @@ public class MenuActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void toForum(View view){
-        Toast.makeText(this,"Funcion aun no disponible",Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this,LoginActivity.class);
+        startActivity(intent);
     }
     public void recordVideo(View view){
         Toast.makeText(this,"Funcion aun no disponible",Toast.LENGTH_SHORT).show();
