@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">SignApp</string>
 
-    <string name="buttonMainEU">Euskera</string>
-    <string name="buttonMainES">Castellano</string>
+    <string name="buttonMainEU" translatable="false">Euskera</string>
+    <string name="buttonMainES" translatable="false">Castellano</string>
 
-    <string name="buttonEU">EU</string>
-    <string name="buttonES">ES</string>
+    <string name="buttonEU" translatable="false">EU</string>
+    <string name="buttonES" translatable="false">ES</string>
 
     <string name="welcome">Hola</string>
     <string name="back">Atrás</string>
@@ -49,5 +49,11 @@
     <string name="fraseTrad8">¿Cómo te llamas?</string>
     <string name="fraseTrad9">¡Encantado de conocerte!</string>
     <string name="fraseTrad10">Disculpe</string>
+    <string name="user">Usuario</string>
+    <string name="passwd">Contraseña</string>
+    <string name="loginButton" translatable="false">Login</string>
+    <string name="rememberMe">Recuerdame</string>
+    <string name="logOutButton" translatable="false">LOG OUT</string>
+    <string name="makeQuestHint" translatable="false">\?</string>
 
 </resources>

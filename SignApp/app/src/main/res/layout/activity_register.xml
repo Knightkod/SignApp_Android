@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="eus.ehu.intel.signapp.RegisterActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/registerButton"
+        android:textSize="@dimen/titleSize"
+        android:textColor="@color/textColor"
+        android:textStyle="bold"/>
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user"
+            android:textColor="@color/textColor"
+            />
+
+        <EditText
+            android:id="@+id/userRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:hint="@string/user"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/passwd"
+            android:textColor="@color/textColor"
+            />
+
+        <EditText
+            android:id="@+id/passwdRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="@string/passwd"
+            />
+    </GridLayout>
+
+    <Button
+        android:id="@+id/buttonForRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/buttonMargin"
+        android:background="@color/colorPrimary"
+        android:text="@string/registerButton"
+        android:textColor="@color/buttonTextColor"
+        android:textSize="@dimen/buttonTextSize"
+        android:onClick="register"/>
+</LinearLayout>

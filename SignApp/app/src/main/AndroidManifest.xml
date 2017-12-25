@@ -19,7 +19,10 @@
         <activity android:name=".MenuActivity" />
         <activity android:name=".GeninfoActivity" />
         <activity android:name=".TraductorActivity" />
-        <activity android:name=".AlphabetActivity"></activity>
+        <activity android:name=".AlphabetActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".ForumActivity"></activity>
     </application>
 
 </manifest>

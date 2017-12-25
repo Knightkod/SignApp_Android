@@ -44,4 +44,7 @@
     <string name="fraseTrad8">Nola deitzen zara?</string>
     <string name="fraseTrad9">Pozten naiz zu ezagutzeaz</string>
     <string name="fraseTrad10">Barkatu</string>
+    <string name="user">Erabiltzaile</string>
+    <string name="passwd">Pasahitza</string>
+    <string name="rememberMe">Gogoratu</string>
 </resources>
