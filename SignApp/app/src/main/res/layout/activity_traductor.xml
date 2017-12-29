@@ -30,7 +30,8 @@
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
         android:background="@color/colorPrimary"
-        android:onClick="viewVideo"/>
+        android:onClick="viewVideo"
+        android:tag="1"/>
     <Button
         android:id="@+id/buttonTraductVideo2"
         android:layout_width="match_parent"
@@ -41,7 +42,8 @@
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
         android:background="@color/colorPrimary"
-        android:onClick="viewVideo" />
+        android:onClick="viewVideo"
+        android:tag="2"/>
     <Button
         android:id="@+id/buttonTraductVideo3"
         android:layout_width="match_parent"
@@ -52,7 +54,8 @@
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
         android:background="@color/colorPrimary"
-        android:onClick="viewVideo"/>
+        android:onClick="viewVideo"
+        android:tag="3"/>
     <Button
         android:id="@+id/buttonTraductVideo4"
         android:layout_width="match_parent"
@@ -63,7 +66,8 @@
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
         android:background="@color/colorPrimary"
-        android:onClick="viewVideo" />
+        android:onClick="viewVideo"
+        android:tag="4"/>
     <Button
         android:id="@+id/buttonTraductVideo5"
         android:layout_width="match_parent"
@@ -74,7 +78,8 @@
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
         android:background="@color/colorPrimary"
-        android:onClick="viewVideo"/>
+        android:onClick="viewVideo"
+        android:tag="5"/>
     <Button
         android:id="@+id/buttonTraductVideo6"
         android:layout_width="match_parent"
@@ -85,7 +90,8 @@
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
         android:background="@color/colorPrimary"
-        android:onClick="viewVideo"/>
+        android:onClick="viewVideo"
+        android:tag="6"/>
     <Button
         android:id="@+id/buttonTraductVideo7"
         android:layout_width="match_parent"
@@ -96,7 +102,8 @@
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
         android:background="@color/colorPrimary"
-        android:onClick="viewVideo" />
+        android:onClick="viewVideo"
+        android:tag="7"/>
     <Button
         android:id="@+id/buttonTraductVideo8"
         android:layout_width="match_parent"
@@ -107,7 +114,8 @@
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
         android:background="@color/colorPrimary"
-        android:onClick="viewVideo" />
+        android:onClick="viewVideo"
+        android:tag="8"/>
     <Button
         android:id="@+id/buttonTraductVideo9"
         android:layout_width="match_parent"
@@ -118,7 +126,8 @@
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
         android:background="@color/colorPrimary"
-        android:onClick="viewVideo" />
+        android:onClick="viewVideo"
+        android:tag="9"/>
     <Button
         android:id="@+id/buttonTraductVideo10"
         android:layout_width="match_parent"
@@ -129,7 +138,8 @@
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
         android:background="@color/colorPrimary"
-        android:onClick="viewVideo" />
+        android:onClick="viewVideo"
+        android:tag="10"/>
     </LinearLayout>
 </ScrollView>
 
