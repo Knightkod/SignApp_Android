@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="eus.ehu.intel.signapp.GeninfoActivity">
+    tools:context="eus.ehu.intel.signapp.GeninfoActivity"
+    android:id="@+id/genInfoLayout">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,6 +15,7 @@
         android:textColor="@color/textColor"
         android:textStyle="bold"/>
     <TextView
+        android:id="@+id/genInfoText1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/standardViewMargin"
@@ -23,6 +25,7 @@
 
 
     <TextView
+        android:id="@+id/genInfoText2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/standardViewMargin"
@@ -32,6 +35,7 @@
 
 
     <TextView
+        android:id="@+id/genInfoText3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/standardViewMargin"
@@ -41,6 +45,7 @@
 
 
     <TextView
+        android:id="@+id/genInfoText4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/standardViewMargin"

@@ -20,4 +20,8 @@ public class LanguageGestor {
         config.locale=locale;
         resources.updateConfiguration(config,resources.getDisplayMetrics());
     }
+
+    public static String getLanguage(){
+        return Locale.getDefault().getLanguage();
+    }
 }
