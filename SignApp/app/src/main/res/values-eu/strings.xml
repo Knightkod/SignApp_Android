@@ -47,4 +47,6 @@
     <string name="user">Erabiltzaile</string>
     <string name="passwd">Pasahitza</string>
     <string name="rememberMe">Gogoratu</string>
+    <string name="noCamera">Ez dago kamararik. Ezin da erabili funtzionalitate honek.</string>
+    <string name="videoOk">Bideoa ondo grabatu da</string>
 </resources>

@@ -1,12 +1,17 @@
 package eus.ehu.intel.signapp;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
 public class MenuActivity extends AppCompatActivity {
+
+    public static final int VIDEO_REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,31 @@ public class MenuActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void recordVideo(View view){
-        Toast.makeText(this,"Funcion aun no disponible",Toast.LENGTH_SHORT).show();
+        if(!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)){
+            Toast.makeText(getApplicationContext(),R.string.noCamera,Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+            if(intent.resolveActivity(getPackageManager())!=null)
+                startActivityForResult(intent,VIDEO_REQUEST_CODE);
+        }
+
+    }
+
+    public void grabaVideo(View view){
+
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        if(resultCode!= Activity.RESULT_OK)
+            return ;
+
+        switch (requestCode){
+            case VIDEO_REQUEST_CODE:
+                Toast.makeText(this,R.string.videoOk,Toast.LENGTH_SHORT).show();
+                data.getData();
+                //falta el tratamiento que se le da al video una vez grabado, en este caso llamar a dropbox para subirlo
+                break;
+        }
     }
 }

@@ -55,5 +55,7 @@
     <string name="rememberMe">Recuerdame</string>
     <string name="logOutButton" translatable="false">LOG OUT</string>
     <string name="makeQuestHint" translatable="false">\?</string>
+    <string name="noCamera">No hay cámara. Por tanto, esta funcionalidad no está disponible.</string>
+    <string name="videoOk">Video grabado correctamente</string>
 
 </resources>
