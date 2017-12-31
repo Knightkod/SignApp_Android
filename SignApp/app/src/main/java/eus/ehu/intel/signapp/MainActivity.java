@@ -5,6 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import java.util.Locale;
+
+import eus.ehu.intel.signapp.Modelo.LanguageGestor;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -14,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void toMenu(View view){
+        String tag=view.getTag().toString();
+        LanguageGestor.changeLanguage(this,tag);
+
         Intent intent = new Intent(this,MenuActivity.class);
         startActivity(intent);
     }
