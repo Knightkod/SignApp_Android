@@ -3,6 +3,8 @@
     <dimen name="buttonTextSize">20sp</dimen>
     <dimen name="titleSize">30sp</dimen>
     <dimen name="textSize">15sp</dimen>
+    <dimen name="forumButtonTextSize">5sp</dimen>
     <dimen name="buttonMargin">20dp</dimen>
     <dimen name="standardViewMargin">30dp</dimen>
+    <dimen name="forumButtonMargin">15dp</dimen>
 </resources>

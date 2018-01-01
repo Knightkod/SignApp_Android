@@ -6,86 +6,108 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="eus.ehu.intel.signapp.ForumActivity">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/forumButton"
-        android:textSize="@dimen/titleSize"
-        android:textColor="@color/textColor"
-        android:textStyle="bold"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/makeQuestButton"
-        android:textSize="@dimen/titleSize"
-        android:textColor="@color/textColor"
-        android:textStyle="bold"/>
-    <EditText
-        android:id="@+id/questionText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/standardViewMargin"
-        android:hint="@string/makeQuestHint"/>
-    <Button
-        android:id="@+id/buttonSendQuest"
-        android:layout_width="186dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_margin="@dimen/buttonMargin"
-        android:text="@string/makeQuestButton"
-        android:textColor="@color/buttonTextColor"
-        android:textSize="@dimen/buttonTextSize"
-        android:background="@color/colorPrimary"
-        android:onClick="sendQuest"/>
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/forumButton"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/titleSize"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/makeQuestButton"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/titleSize"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/questionText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/standardViewMargin"
+                android:hint="@string/makeQuestHint" />
+
+            <Button
+                android:id="@+id/buttonSendQuest"
+                android:layout_width="186dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="@dimen/buttonMargin"
+                android:background="@color/colorPrimary"
+                android:onClick="sendQuest"
+                android:text="@string/makeQuestButton"
+                android:textColor="@color/buttonTextColor"
+                android:textSize="@dimen/buttonTextSize" />
 
 
-    <TextView
-        android:id="@+id/myQuestions"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/question"
-        android:textSize="@dimen/titleSize"
-        android:textColor="@color/textColor"
-        android:textStyle="bold"/>
-    <GridLayout
-        android:id="@+id/gridLayoutOthersQuestion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="308dp"
-            android:layout_height="wrap_content"
-            android:text="@string/resp"
-            android:textSize="@dimen/titleSize"
-            android:textColor="@color/textColor"
-            android:textStyle="bold"/>
-        <ImageButton android:layout_width="28dp"
-            android:layout_height="34dp"
-            android:src="@drawable/info_icon_blue_3d"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true"
-            android:background="@color/colorPrimary"
-            android:onClick="uploadVideoPopUp"/>
-    </GridLayout>
+            <TextView
+                android:id="@+id/myQuestions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/question"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/titleSize"
+                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+            android:id="@+id/myQuestionsLayout"
+                android:orientation="vertical"
+                ></LinearLayout>
+            <GridLayout
+                android:id="@+id/gridLayoutOthersQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
+                <TextView
+                    android:layout_width="308dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/resp"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/titleSize"
+                    android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/buttonLogOut"
-        android:layout_width="186dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_margin="@dimen/buttonMargin"
-        android:text="@string/logOutButton"
-        android:textColor="@color/buttonTextColor"
-        android:textSize="@dimen/buttonTextSize"
-        android:background="@color/colorPrimary"
-        android:onClick="logout"/>
+                <ImageButton
+                    android:layout_width="28dp"
+                    android:layout_height="34dp"
+                    android:adjustViewBounds="true"
+                    android:background="@color/colorPrimary"
+                    android:onClick="uploadVideoPopUp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/info_icon_blue_3d" />
+            </GridLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/othersQuestionLayout"
+                android:orientation="vertical"></LinearLayout>
+            <Button
+                android:id="@+id/buttonLogOut"
+                android:layout_width="186dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="@dimen/buttonMargin"
+                android:background="@color/colorPrimary"
+                android:onClick="logout"
+                android:text="@string/logOutButton"
+                android:textColor="@color/buttonTextColor"
+                android:textSize="@dimen/buttonTextSize" />
         </LinearLayout>
     </ScrollView>
 

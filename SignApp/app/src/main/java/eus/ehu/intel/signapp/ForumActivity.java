@@ -1,13 +1,19 @@
 package eus.ehu.intel.signapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
+import android.widget.LinearLayout.LayoutParams;
 
+import java.util.List;
+
+import eus.ehu.intel.signapp.Modelo.Forum;
 import eus.ehu.intel.signapp.Modelo.ServerConnection;
 
 public class ForumActivity extends AppCompatActivity {
@@ -24,8 +30,58 @@ public class ForumActivity extends AppCompatActivity {
         userLogin=intent.getStringExtra(LOGIN_ID);
 
         ServerConnection srvCx=new ServerConnection();
-        srvCx.recibirPreguntasUsuario(userLogin);
-        srvCx.recibirPreguntasOtrosUsuarios(userLogin);
+        printUserQuestions(this,srvCx.recibirPreguntasUsuario(userLogin));
+        printOthersQuestions(this,srvCx.recibirPreguntasOtrosUsuarios(userLogin));
+    }
+    private void printUserQuestions(Context context,List<Forum> foro) {
+        LinearLayout linearLayout=(LinearLayout)findViewById(R.id.myQuestionsLayout);
+        LayoutParams layoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+        int margin = (int) getResources().getDimension(R.dimen.forumButtonMargin);
+        layoutParams.setMargins(margin,margin,margin,margin);
+        for(int i = 0; i < foro.size();i++){
+            Button btn = new Button(context);
+            btn.setText(foro.get(i).getQuestion());
+            btn.setLayoutParams(layoutParams);
+            btn.setTextColor(getResources().getColor(R.color.buttonTextColor));
+            btn.setTextSize(getResources().getDimension(R.dimen.forumButtonTextSize));
+            btn.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+           /*btn.setOnClickListener(new View.OnClickListener(foro) {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getApplicationContext(),foro.get(i).getResp(),Toast.LENGTH_SHORT).show();
+                }
+            });*/
+            linearLayout.addView(btn);
+        }
+    }
+
+    private View.OnClickListener verRespuesta(String respuesta) {
+
+        return null;
+    }
+
+
+    private void printOthersQuestions(Context context,List<Forum> foro) {
+        LinearLayout linearLayout=(LinearLayout)findViewById(R.id.othersQuestionLayout);
+        LayoutParams layoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+        int margin = (int) getResources().getDimension(R.dimen.forumButtonMargin);
+        layoutParams.setMargins(margin,margin,margin,margin);
+        for(int i = 0; i < foro.size();i++){
+            Button btn = new Button(context);
+            btn.setText(foro.get(i).getQuestion());
+            btn.setLayoutParams(layoutParams);
+            btn.setTextColor(getResources().getColor(R.color.buttonTextColor));
+            btn.setTextSize(getResources().getDimension(R.dimen.forumButtonTextSize));
+            btn.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+
+           /* btn.setOnClickListener(new View.OnClickListener(foro) {
+                @Override
+                public void onClick(View v) {
+                    foro.get(i).getResp();
+                }
+            });*/
+            linearLayout.addView(btn);
+        }
     }
 
     public void sendQuest(View view) {
