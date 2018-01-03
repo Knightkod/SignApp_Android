@@ -40,17 +40,20 @@ public class TraductorActivity extends AppCompatActivity {
     public void viewVideo(View view) {
 
         ViewGroup layout = (ViewGroup) view.getParent();
-        View nextButton= layout.getChildAt(layout.indexOfChild(findViewById(buttonClickedId))+1);
+        View nextButton;
         RelativeLayout.LayoutParams webViewParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        RelativeLayout.LayoutParams nextButtonParams = (RelativeLayout.LayoutParams) nextButton.getLayoutParams();
+        RelativeLayout.LayoutParams nextButtonParams;
         if(buttonClickedTag!=50) {
             WebView web = (WebView)findViewById(R.id.traductorWebView);
             ViewGroup relativeLayout = (ViewGroup) web.getParent();
-
             relativeLayout.removeView(web);
-            /*nextButtonParams.removeRule(RelativeLayout.BELOW);
-            nextButtonParams.addRule(RelativeLayout.BELOW,buttonClickedId);
-            nextButton.setLayoutParams(nextButtonParams);*/
+            if(buttonClickedTag<9) {
+                nextButton = layout.getChildAt(layout.indexOfChild(findViewById(buttonClickedId)) + 1);
+                nextButtonParams = (RelativeLayout.LayoutParams) nextButton.getLayoutParams();
+                nextButtonParams.removeRule(RelativeLayout.BELOW);
+                nextButtonParams.addRule(RelativeLayout.BELOW, buttonClickedId);
+                nextButton.setLayoutParams(nextButtonParams);
+            }
 
         }//quizas sería mejor ocultar como view.gone en lugar de borrarla
         buttonClickedTag = Integer.parseInt(view.getTag().toString())-1;
@@ -65,9 +68,14 @@ public class TraductorActivity extends AppCompatActivity {
         web.setLayerType(WebView.LAYER_TYPE_SOFTWARE,null);
         webViewParams.addRule(RelativeLayout.BELOW,buttonClickedId);
         web.setLayoutParams(webViewParams);
-        /*nextButtonParams.removeRule(RelativeLayout.BELOW);
-        nextButtonParams.addRule(RelativeLayout.BELOW,R.id.traductorWebView);
-        nextButton.setLayoutParams(nextButtonParams);*/
+
+        if(buttonClickedTag<9) {
+            nextButton = layout.getChildAt(layout.indexOfChild(findViewById(buttonClickedId)) + 1);
+            nextButtonParams = (RelativeLayout.LayoutParams) nextButton.getLayoutParams();
+            nextButtonParams.removeRule(RelativeLayout.BELOW);
+            nextButtonParams.addRule(RelativeLayout.BELOW, R.id.traductorWebView);
+            nextButton.setLayoutParams(nextButtonParams);
+        }
         layout.addView(web);
     }
 }
