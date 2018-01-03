@@ -1,5 +1,6 @@
 package eus.ehu.intel.signapp.Modelo;
 
+import android.app.Activity;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -18,7 +19,7 @@ public class AudioPlayer implements MediaController.MediaPlayerControl, MediaPla
     private MediaPlayer player;
     private MediaController controller;
 
-    public AudioPlayer(View view, final Runnable onExit){
+    public AudioPlayer(final View view, final Runnable onExit){
         this.view=view;
         player=new MediaPlayer();
         player.setOnPreparedListener(this);
@@ -32,6 +33,8 @@ public class AudioPlayer implements MediaController.MediaPlayerControl, MediaPla
             public boolean dispatchKeyEvent(KeyEvent event){
                 if(event.getKeyCode()==KeyEvent.KEYCODE_BACK){
                     release();
+                    Activity activity=(Activity)view.getContext();
+                    activity.finish();
                     //onExit.run();
                 }
 

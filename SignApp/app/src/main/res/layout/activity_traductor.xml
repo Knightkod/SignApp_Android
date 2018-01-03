@@ -16,7 +16,7 @@
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -38,6 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="@dimen/buttonMargin"
+        android:layout_below="@id/buttonTraductVideo1"
         android:text="@string/fraseTrad2"
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
@@ -50,6 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="@dimen/buttonMargin"
+        android:layout_below="@id/buttonTraductVideo2"
         android:text="@string/fraseTrad3"
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
@@ -62,6 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="@dimen/buttonMargin"
+        android:layout_below="@id/buttonTraductVideo3"
         android:text="@string/fraseTrad4"
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
@@ -74,6 +77,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="@dimen/buttonMargin"
+        android:layout_below="@id/buttonTraductVideo4"
         android:text="@string/fraseTrad5"
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
@@ -86,6 +90,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="@dimen/buttonMargin"
+        android:layout_below="@id/buttonTraductVideo5"
         android:text="@string/fraseTrad6"
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
@@ -98,6 +103,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="@dimen/buttonMargin"
+        android:layout_below="@id/buttonTraductVideo6"
         android:text="@string/fraseTrad7"
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
@@ -110,6 +116,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="@dimen/buttonMargin"
+        android:layout_below="@id/buttonTraductVideo7"
         android:text="@string/fraseTrad8"
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
@@ -122,6 +129,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="@dimen/buttonMargin"
+        android:layout_below="@id/buttonTraductVideo8"
         android:text="@string/fraseTrad9"
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
@@ -134,13 +142,14 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="@dimen/buttonMargin"
+        android:layout_below="@id/buttonTraductVideo9"
         android:text="@string/fraseTrad10"
         android:textColor="@color/buttonTextColor"
         android:textSize="@dimen/buttonTextSize"
         android:background="@color/colorPrimary"
         android:onClick="viewVideo"
         android:tag="10"/>
-    </LinearLayout>
+    </RelativeLayout>
 </ScrollView>
 
 </LinearLayout>
