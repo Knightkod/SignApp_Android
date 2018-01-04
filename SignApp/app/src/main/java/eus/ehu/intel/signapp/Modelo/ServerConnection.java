@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import eus.ehu.intel.signapp.Interfaces.ServerInterface;
+import eus.ehu.intel.signapp.R;
 
 /**
  * Created by iubuntu on 23/12/17.
@@ -75,6 +76,8 @@ public class ServerConnection implements ServerInterface {
 
     @Override
     public boolean enviarUrlRespuesta(String user, String password, int id_pregunta, String urlRespuesta) {
+        String[] auxURL = urlRespuesta.split("/");
+        String url= Integer.toString(R.string.dropboxContentURL)+auxURL[4]+"/"+auxURL[5];
 
         return true;
     }
