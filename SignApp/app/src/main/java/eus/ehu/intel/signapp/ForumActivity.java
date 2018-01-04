@@ -45,12 +45,15 @@ public class ForumActivity extends AppCompatActivity {
             btn.setTextColor(getResources().getColor(R.color.buttonTextColor));
             btn.setTextSize(getResources().getDimension(R.dimen.forumButtonTextSize));
             btn.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            if(foro.get(i).getResp()!=null && foro.get(i).getResp()!="") {
+                btn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.video, 0);
            /*btn.setOnClickListener(new View.OnClickListener(foro) {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(getApplicationContext(),foro.get(i).getResp(),Toast.LENGTH_SHORT).show();
                 }
             });*/
+            }
             linearLayout.addView(btn);
         }
     }
