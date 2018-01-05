@@ -38,31 +38,27 @@ public class ForumActivity extends AppCompatActivity {
         LayoutParams layoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
         int margin = (int) getResources().getDimension(R.dimen.forumButtonMargin);
         layoutParams.setMargins(margin,margin,margin,margin);
+        Button btn;
         for(int i = 0; i < foro.size();i++){
-            Button btn = new Button(context);
+            btn = new Button(context);
             btn.setText(foro.get(i).getQuestion());
             btn.setLayoutParams(layoutParams);
             btn.setTextColor(getResources().getColor(R.color.buttonTextColor));
             btn.setTextSize(getResources().getDimension(R.dimen.forumButtonTextSize));
+            btn.setTag(foro.get(i).getResp());
             btn.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
             if(foro.get(i).getResp()!=null && foro.get(i).getResp()!="") {
                 btn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.video, 0);
-           /*btn.setOnClickListener(new View.OnClickListener(foro) {
+           btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(getApplicationContext(),foro.get(i).getResp(),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),(String)v.getTag(),Toast.LENGTH_SHORT).show();
                 }
-            });*/
+            });
             }
             linearLayout.addView(btn);
         }
     }
-
-    private View.OnClickListener verRespuesta(String respuesta) {
-
-        return null;
-    }
-
 
     private void printOthersQuestions(Context context,List<Forum> foro) {
         LinearLayout linearLayout=(LinearLayout)findViewById(R.id.othersQuestionLayout);
@@ -75,14 +71,15 @@ public class ForumActivity extends AppCompatActivity {
             btn.setLayoutParams(layoutParams);
             btn.setTextColor(getResources().getColor(R.color.buttonTextColor));
             btn.setTextSize(getResources().getDimension(R.dimen.forumButtonTextSize));
+            btn.setTag(foro.get(i).getId());
             btn.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
 
-           /* btn.setOnClickListener(new View.OnClickListener(foro) {
+            btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    foro.get(i).getResp();
+                    Toast.makeText(getApplicationContext(),Integer.toString((int)v.getTag()),Toast.LENGTH_SHORT).show();
                 }
-            });*/
+            });
             linearLayout.addView(btn);
         }
     }
