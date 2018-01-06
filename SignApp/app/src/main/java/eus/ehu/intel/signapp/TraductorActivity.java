@@ -65,7 +65,6 @@ public class TraductorActivity extends AppCompatActivity {
         web.loadData("<iframe width=\"100%\" height=\"auto\"+\n" +
                 "src='"+urlTraductor[buttonClickedTag]+"' ></iframe>","text/html",null);
         web.setBackgroundColor(Color.TRANSPARENT);
-        web.setLayerType(WebView.LAYER_TYPE_SOFTWARE,null);
         webViewParams.addRule(RelativeLayout.BELOW,buttonClickedId);
         web.setLayoutParams(webViewParams);
 
