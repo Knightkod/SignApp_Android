@@ -31,10 +31,10 @@ public class ForumActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         userLogin=intent.getStringExtra(LOGIN_ID);
-
+        userPass=intent.getStringExtra(LOGIN_PASS);
         ServerConnection srvCx=new ServerConnection();
-        //printUserQuestions(this,srvCx.recibirPreguntasUsuario(userLogin));
-        //printOthersQuestions(this,srvCx.recibirPreguntasOtrosUsuarios(userLogin));
+        printUserQuestions(this,srvCx.recibirPreguntasUsuario(userLogin));
+        printOthersQuestions(this,srvCx.recibirPreguntasOtrosUsuarios(userLogin));
     }
 
     private void printUserQuestions(Context context,List<Forum> foro) {
@@ -72,7 +72,8 @@ public class ForumActivity extends AppCompatActivity {
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(getApplicationContext(),Integer.toString((int)v.getTag()),Toast.LENGTH_SHORT).show();
+                    int questId = (int)v.getTag();
+                    uploadVideoPopUp(questId);
                 }
             });
             previousButtonId=i+100;
@@ -105,17 +106,29 @@ public class ForumActivity extends AppCompatActivity {
         }
     }
 
-    public void uploadVideoPopUp(View view) {
-        Toast.makeText(getApplicationContext(),"Funcion aun no disponible",Toast.LENGTH_SHORT).show();
-    }
+    public void uploadVideoPopUp(int questId) {
+        AlertDialog.Builder builder=new AlertDialog.Builder(ForumActivity.this);
 
-    public void uploadResponse(View view){
-        ServerConnection srvCx=new ServerConnection();
-        int id_preg=0;
-        String urlRespuesta="";
-        if(srvCx.enviarUrlRespuesta(userLogin,userPass,id_preg,urlRespuesta)){
-            Toast.makeText(getApplicationContext(),"AllOKResponse",Toast.LENGTH_SHORT).show();
-        }
+        LayoutInflater inflater= ForumActivity.this.getLayoutInflater();
+        final View view = inflater.inflate(R.layout.forum_upload_dialog,null);
+
+        builder.setView(view);
+        final  AlertDialog dialog=builder.show();
+        Button sendResponseURL= view.findViewById(R.id.buttonSendResponse);
+        sendResponseURL.setTag(questId);
+        sendResponseURL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String responseURL = ((EditText)view.findViewById(R.id.responseURL)).getText().toString();
+                int questId=(int)v.getTag();
+                ServerConnection srvCx=new ServerConnection();
+                if(srvCx.enviarUrlRespuesta(userLogin,userPass,questId,responseURL)){
+                    Toast.makeText(getApplicationContext(),"AllOKResponse, con id: "+Integer.toString(questId)+" y url "+responseURL,Toast.LENGTH_SHORT).show();
+                }
+                dialog.dismiss();
+            }
+        });
+
     }
 
     public void logout(View view) {
@@ -124,7 +137,6 @@ public class ForumActivity extends AppCompatActivity {
     }
 
     public void uploadInfoPopup(View view) {
-        System.out.println("aeqeeaeqeqe");
         AlertDialog.Builder builder=new AlertDialog.Builder(ForumActivity.this);
         LayoutInflater inflater= ForumActivity.this.getLayoutInflater();
         View v = inflater.inflate(R.layout.forum_info_dialog,null);

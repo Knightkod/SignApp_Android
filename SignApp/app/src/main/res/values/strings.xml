@@ -58,5 +58,8 @@
     <string name="noCamera">No hay cámara. Por tanto, esta funcionalidad no está disponible.</string>
     <string name="videoOk">Video grabado correctamente</string>
     <string name="dropboxContentURL" translatable="false">https://dl.dropboxusercontent.com/s/</string>
+    <string name="uploadVideoTitle">Introduzca URL:</string>
+    <string name="urlHint" translatable="false">http://dropbox.com/.......</string>
+
 
 </resources>

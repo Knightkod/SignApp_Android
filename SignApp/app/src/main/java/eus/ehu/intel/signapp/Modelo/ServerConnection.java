@@ -78,7 +78,9 @@ public class ServerConnection implements ServerInterface {
     @Override
     public boolean enviarUrlRespuesta(String user, String password, int id_pregunta, String urlRespuesta) {
         String[] auxURL = urlRespuesta.split("/");
-        String url= Integer.toString(R.string.dropboxContentURL)+auxURL[4]+"/"+auxURL[5];
+        String url="";
+        if(auxURL.length>=5)
+            url= Integer.toString(R.string.dropboxContentURL)+auxURL[4]+"/"+auxURL[5];
 
         return true;
     }

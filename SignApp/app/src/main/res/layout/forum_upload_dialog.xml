@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/dialogPadding">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dialogElemVerticalMargins"
+        android:layout_marginBottom="@dimen/dialogElemVerticalMargins"
+        android:text="@string/uploadVideoTitle"
+        android:textSize="@dimen/titleSize"
+        android:textColor="@color/textColor"
+        android:textStyle="bold"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/sectionSeparator"
+        android:layout_marginTop="@dimen/dialogElemVerticalMargins"
+        android:layout_marginBottom="@dimen/dialogElemVerticalMargins"
+        android:background="@color/sectionSeparator"/>
+    <EditText
+        android:id="@+id/responseURL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dialogElemVerticalMargins"
+        android:layout_marginBottom="@dimen/dialogElemVerticalMargins"
+        android:hint="@string/urlHint"
+        android:text=""/>
+    <Button
+        android:id="@+id/buttonSendResponse"
+        android:layout_width="186dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dialogElemVerticalMargins"
+        android:layout_marginBottom="@dimen/dialogElemVerticalMargins"
+        android:text="@string/sendButton"
+        android:textColor="@color/buttonTextColor"
+        android:textSize="@dimen/buttonTextSize"
+        android:background="@color/colorPrimary"
+        />
+
+</LinearLayout>
