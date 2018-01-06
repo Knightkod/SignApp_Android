@@ -40,9 +40,10 @@ public class ServerConnection implements ServerInterface {
         List<Forum> listForum= new ArrayList<Forum>();
         //parseando respuesta del servidor respecto a preguntas de otros usuarios
         List<Forum> listForumAux= new ArrayList<Forum>();
-        Forum forumAux = new Forum();
+        Forum forumAux;
         int dateAux=20171211;
         for (int i=0; i<10;i++) {
+            forumAux = new Forum();
             forumAux.setDate(dateAux++);
             forumAux.setQuestion("????"+Integer.toString(i));
             forumAux.setResp("trying"+Integer.toString(i));
@@ -57,11 +58,11 @@ public class ServerConnection implements ServerInterface {
         List<Forum> listForum= new ArrayList<Forum>();
         //parseando respuesta del servidor respecto a preguntas de otros usuarios
         List<Forum> listForumAux= new ArrayList<Forum>();
-        Forum forumAux = new Forum();
+        Forum forumAux;
         int auxId=1;
         //parseando respuesta del servidor respecto a preguntas de otros usuarios
         for (int i=0; i<10;i++) {
-
+            forumAux = new Forum();
             forumAux.setQuestion("????Others"+Integer.toString(i));
             forumAux.setId(auxId++);
             listForumAux.add(forumAux);

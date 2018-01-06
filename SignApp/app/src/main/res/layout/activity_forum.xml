@@ -61,13 +61,13 @@
                 android:textColor="@color/textColor"
                 android:textSize="@dimen/titleSize"
                 android:textStyle="bold" />
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-            android:id="@+id/myQuestionsLayout"
+                android:id="@+id/myQuestionsLayout"
                 android:orientation="vertical"
-                ></LinearLayout>
+                ></RelativeLayout>
             <GridLayout
                 android:id="@+id/gridLayoutOthersQuestion"
                 android:layout_width="match_parent"
@@ -91,12 +91,12 @@
                     android:src="@drawable/info_icon_blue_3d" />
             </GridLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:id="@+id/othersQuestionLayout"
-                android:orientation="vertical"></LinearLayout>
+                android:orientation="vertical"></RelativeLayout>
             <Button
                 android:id="@+id/buttonLogOut"
                 android:layout_width="186dp"
