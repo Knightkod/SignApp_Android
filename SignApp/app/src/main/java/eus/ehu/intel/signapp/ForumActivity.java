@@ -18,12 +18,15 @@ import java.util.List;
 
 import eus.ehu.intel.signapp.Modelo.Forum;
 import eus.ehu.intel.signapp.Modelo.ServerConnection;
+import eus.ehu.intel.signapp.Presentacion.VideoButton;
 
 public class ForumActivity extends AppCompatActivity {
     public static final String LOGIN_ID="login";
     public static final String LOGIN_PASS="pass";
     private String userLogin="";
     private String userPass="";
+    VideoButton videoButton = new VideoButton();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +54,8 @@ public class ForumActivity extends AppCompatActivity {
                 btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(getApplicationContext(),(String)v.getTag(),Toast.LENGTH_SHORT).show();
+                        Activity activity = (Activity) v.getContext();
+                        videoButton.showVideo(v,(String) v.getTag(),activity);
                     }
                 });
             }
