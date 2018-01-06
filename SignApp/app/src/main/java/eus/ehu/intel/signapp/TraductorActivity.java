@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import eus.ehu.intel.signapp.Presentacion.VideoButton;
+
 public class TraductorActivity extends AppCompatActivity {
 
     private String[] urlTraductor={
@@ -27,8 +29,8 @@ public class TraductorActivity extends AppCompatActivity {
         "https://www.youtube.com/embed/s3Hwwyw7-tA",
         "https://www.youtube.com/embed/pBOK4R5bW7w"
         };
-    private int buttonClickedTag=50;//valor arbitrario que permite saber cuando es el estado inicial
-    private int buttonClickedId=0;
+
+    VideoButton videoButton = new VideoButton();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,43 +40,6 @@ public class TraductorActivity extends AppCompatActivity {
 
 
     public void viewVideo(View view) {
-
-        ViewGroup layout = (ViewGroup) view.getParent();
-        View nextButton;
-        RelativeLayout.LayoutParams webViewParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        RelativeLayout.LayoutParams nextButtonParams;
-        if(buttonClickedTag!=50) {
-            WebView web = (WebView)findViewById(R.id.traductorWebView);
-            ViewGroup relativeLayout = (ViewGroup) web.getParent();
-            relativeLayout.removeView(web);
-            if(buttonClickedTag<9) {
-                nextButton = layout.getChildAt(layout.indexOfChild(findViewById(buttonClickedId)) + 1);
-                nextButtonParams = (RelativeLayout.LayoutParams) nextButton.getLayoutParams();
-                nextButtonParams.removeRule(RelativeLayout.BELOW);
-                nextButtonParams.addRule(RelativeLayout.BELOW, buttonClickedId);
-                nextButton.setLayoutParams(nextButtonParams);
-            }
-
-        }//quizas sería mejor ocultar como view.gone en lugar de borrarla
-        buttonClickedTag = Integer.parseInt(view.getTag().toString())-1;
-        buttonClickedId = view.getId();
-        WebView web = new WebView(this);
-        web.setId(R.id.traductorWebView);
-        WebSettings webSettings = web.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-        web.loadData("<iframe width=\"100%\" height=\"auto\"+\n" +
-                "src='"+urlTraductor[buttonClickedTag]+"' ></iframe>","text/html",null);
-        web.setBackgroundColor(Color.TRANSPARENT);
-        webViewParams.addRule(RelativeLayout.BELOW,buttonClickedId);
-        web.setLayoutParams(webViewParams);
-
-        if(buttonClickedTag<9) {
-            nextButton = layout.getChildAt(layout.indexOfChild(findViewById(buttonClickedId)) + 1);
-            nextButtonParams = (RelativeLayout.LayoutParams) nextButton.getLayoutParams();
-            nextButtonParams.removeRule(RelativeLayout.BELOW);
-            nextButtonParams.addRule(RelativeLayout.BELOW, R.id.traductorWebView);
-            nextButton.setLayoutParams(nextButtonParams);
-        }
-        layout.addView(web);
+        videoButton.showVideo(view,urlTraductor[Integer.parseInt(view.getTag().toString())-1],this);
     }
 }
