@@ -29,11 +29,11 @@
     <string name="respSendOk">Erantzuna ondo bidali da</string>
     <string name="respSendErr">Erantzun hau ezin da prozesatu</string>
     <string name="infoTitleUploadVideo">Erantzuna igotzeko pausoak</string>
-    <string name="step1">Menu nagusian agertzen den “Bideoa grabatu” botoiaren bidez bideoa grabatu</string>
-    <string name="step2">“Dropbox” aplikazioan sartu eta “Igo bideoak eta irudiak” aukera sakatu</string>
-    <string name="step3">Igoko den artxiboaren helbidea aukeratu eta “Partekatu” botoia sakatu</string>
-    <string name="step4">Dokumentuaren esteka sortu eta “Esteka kopiatu” aukeratu</string>
-    <string name="step5">Signapp aplikazioan bidaliko den erantzunera jo. Bertan, esteka kopiatu eta “Bidali” botoiara eman</string>
+    <string name="step1">1. Menu nagusian agertzen den “Bideoa grabatu” botoiaren bidez bideoa grabatu</string>
+    <string name="step2">2. “Dropbox” aplikazioan sartu eta “Igo bideoak eta irudiak” aukera sakatu</string>
+    <string name="step3">3. Igoko den artxiboaren helbidea aukeratu eta “Partekatu” botoia sakatu</string>
+    <string name="step4">4. Dokumentuaren esteka sortu eta “Esteka kopiatu” aukeratu</string>
+    <string name="step5">5. Signapp aplikazioan bidaliko den erantzunera jo. Bertan, esteka kopiatu eta “Bidali” botoiara eman</string>
     <string name="fraseTrad1">Kaixo, zer moduz?</string>
     <string name="fraseTrad2">Barkatu, zer ordu da?</string>
     <string name="fraseTrad3">Eskerrik asko!</string>

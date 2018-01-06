@@ -34,11 +34,11 @@
     <string name="respSendOk">La respuesta se ha enviado correctamente</string>
     <string name="respSendErr">La respuesta no se ha podido enviar</string>
     <string name="infoTitleUploadVideo">Pasos para subir una respuesta</string>
-    <string name="step1">Grabar un video con el botón de grabar video del menú</string>
-    <string name="step2">Entrar a la app de Dropbox y usar la opción "Subir fotos o videos"</string>
-    <string name="step3">Elegir las opciones del fichero subido y elegir "Compartir"</string>
-    <string name="step4">Crear un enlace y elegir la opción "copiar enlace"</string>
-    <string name="step5">Ir a SignApp y elegir la pregunta que se quiere responder. Pegar el enlace y enviar</string>
+    <string name="step1">1. Grabar un video con el botón de grabar video del menú</string>
+    <string name="step2">2. Entrar a la app de Dropbox y usar la opción \"Subir fotos o videos\"</string>
+    <string name="step3">3. Elegir las opciones del fichero subido y elegir \"Compartir\"</string>
+    <string name="step4">4. Crear un enlace y elegir la opción \"copiar enlace\"</string>
+    <string name="step5">5. Ir a SignApp y elegir la pregunta que se quiere responder. Pegar el enlace y enviar</string>
     <string name="fraseTrad1">Hola, ¿qué tal estás?</string>
     <string name="fraseTrad2">Perdona, ¿qué hora es?</string>
     <string name="fraseTrad3">¡Muchas gracias!</string>

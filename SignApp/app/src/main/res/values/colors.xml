@@ -6,4 +6,6 @@
 
     <color name="textColor">#000000</color>
     <color name="buttonTextColor">#FFFFFF</color>
+
+    <color name="sectionSeparator">#C8C9CB</color>
 </resources>

@@ -51,7 +51,11 @@
                 android:text="@string/makeQuestButton"
                 android:textColor="@color/buttonTextColor"
                 android:textSize="@dimen/buttonTextSize" />
-
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sectionSeparator"
+                android:layout_margin="@dimen/dialogElemVerticalMargins"
+                android:background="@color/sectionSeparator"/>
 
             <TextView
                 android:id="@+id/myQuestions"
@@ -68,6 +72,13 @@
                 android:id="@+id/myQuestionsLayout"
                 android:orientation="vertical"
                 ></RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sectionSeparator"
+                android:layout_margin="@dimen/dialogElemVerticalMargins"
+                android:background="@color/sectionSeparator"/>
+
             <GridLayout
                 android:id="@+id/gridLayoutOthersQuestion"
                 android:layout_width="match_parent"
@@ -86,7 +97,7 @@
                     android:layout_height="34dp"
                     android:adjustViewBounds="true"
                     android:background="@color/colorPrimary"
-                    android:onClick="uploadVideoPopUp"
+                    android:onClick="uploadInfoPopup"
                     android:scaleType="fitCenter"
                     android:src="@drawable/info_icon_blue_3d" />
             </GridLayout>
@@ -97,6 +108,13 @@
                 android:layout_gravity="center_horizontal"
                 android:id="@+id/othersQuestionLayout"
                 android:orientation="vertical"></RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sectionSeparator"
+                android:layout_margin="@dimen/dialogElemVerticalMargins"
+                android:background="@color/sectionSeparator"/>
+
             <Button
                 android:id="@+id/buttonLogOut"
                 android:layout_width="186dp"

@@ -7,4 +7,9 @@
     <dimen name="buttonMargin">20dp</dimen>
     <dimen name="standardViewMargin">30dp</dimen>
     <dimen name="forumButtonMargin">15dp</dimen>
+
+    <dimen name="dialogPadding">24dp</dimen>
+    <dimen name="dialogElemVerticalMargins">10dp</dimen>
+    <dimen name="sectionSeparator">1dp</dimen>
+
 </resources>
