@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_vertical"
-    tools:context="eus.ehu.intel.signapp.MenuActivity">
+    tools:context="eus.ehu.intel.signapp.MenuActivity"
+    android:padding="@dimen/layoutPadding">
 
     <Button
         android:id="@+id/buttonGenInfo"

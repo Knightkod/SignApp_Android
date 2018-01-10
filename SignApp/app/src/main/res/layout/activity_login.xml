@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
-    tools:context="eus.ehu.intel.signapp.LoginActivity">
+    tools:context="eus.ehu.intel.signapp.LoginActivity"
+    android:padding="@dimen/layoutPadding">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

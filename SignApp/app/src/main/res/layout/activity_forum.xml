@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="eus.ehu.intel.signapp.ForumActivity">
+    tools:context="eus.ehu.intel.signapp.ForumActivity"
+    android:padding="@dimen/layoutPadding">
 
     <ScrollView
         android:layout_width="match_parent"
