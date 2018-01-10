@@ -14,6 +14,7 @@
         android:textSize="@dimen/titleSize"
         android:textColor="@color/textColor"
         android:textStyle="bold"/>
+
     <TextView
         android:id="@+id/genInfoText1"
         android:layout_width="match_parent"
@@ -22,7 +23,12 @@
         android:text="@string/genInfo1"
         android:textColor="@color/textColor"
         android:textSize="@dimen/textSize"/>
-
+    <LinearLayout
+        android:id="@+id/genInfo1Controller1"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/genInfoController"
+      ></LinearLayout>
 
     <TextView
         android:id="@+id/genInfoText2"
@@ -32,7 +38,12 @@
         android:text="@string/genInfo2"
         android:textColor="@color/textColor"
         android:textSize="@dimen/textSize"/>
-
+    <LinearLayout
+        android:id="@+id/genInfo1Controller2"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/genInfoController"
+        ></LinearLayout>
 
     <TextView
         android:id="@+id/genInfoText3"
@@ -42,7 +53,12 @@
         android:text="@string/genInfo3"
         android:textColor="@color/textColor"
         android:textSize="@dimen/textSize"/>
-
+    <LinearLayout
+        android:id="@+id/genInfo1Controller3"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/genInfoController"
+        ></LinearLayout>
 
     <TextView
         android:id="@+id/genInfoText4"
@@ -52,4 +68,11 @@
         android:text="@string/genInfo4"
         android:textColor="@color/textColor"
         android:textSize="@dimen/textSize"/>
+
+    <LinearLayout
+        android:id="@+id/genInfo1Controller4"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/genInfoController"
+        ></LinearLayout>
 </LinearLayout>

@@ -12,4 +12,6 @@
     <dimen name="dialogElemVerticalMargins">10dp</dimen>
     <dimen name="sectionSeparator">1dp</dimen>
 
+    <dimen name="genInfoController">60dp</dimen>
+
 </resources>

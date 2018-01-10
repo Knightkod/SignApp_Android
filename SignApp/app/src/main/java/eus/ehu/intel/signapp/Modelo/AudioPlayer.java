@@ -6,6 +6,7 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.MediaController;
 
 import java.io.IOException;
@@ -62,7 +63,8 @@ public class AudioPlayer implements MediaController.MediaPlayerControl, MediaPla
     @Override
     public void onPrepared(MediaPlayer mp) {
         controller.setMediaPlayer(this);
-        controller.setAnchorView(view);
+        ViewGroup layout = (ViewGroup)view.getParent();
+        controller.setAnchorView(layout.getChildAt((layout.indexOfChild(view)+1)));
         controller.show(0);
     }
 
