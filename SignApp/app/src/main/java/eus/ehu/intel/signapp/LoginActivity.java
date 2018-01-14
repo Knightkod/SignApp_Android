@@ -9,6 +9,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import eus.ehu.intel.signapp.Modelo.ProgressTask;
 import eus.ehu.intel.signapp.Modelo.ServerConnection;
 
 public class LoginActivity extends AppCompatActivity {
@@ -21,6 +22,11 @@ public class LoginActivity extends AppCompatActivity {
 
     public static final int REGISTER_REQ_CODE=1;
 
+    public String user;
+    public String pass;
+
+    private ServerConnection srvConn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,8 +36,8 @@ public class LoginActivity extends AppCompatActivity {
         EditText editTextPasswdLogin = (EditText) findViewById(R.id.passwdLogin);
         CheckBox chkBoxRemember = (CheckBox) findViewById(R.id.checkBoxRemindLogin);
         SharedPreferences prefs = getPreferences(MODE_PRIVATE);
-        String user = prefs.getString(SHARED_PREF_USERLOGIN, null);
-        String pass = prefs.getString(SHARED_PREF_USERPASS, null);
+        user = prefs.getString(SHARED_PREF_USERLOGIN, null);
+        pass = prefs.getString(SHARED_PREF_USERPASS, null);
         if (user != null)
             editTextUserLogin.setText(user);
         if (pass != null){
@@ -41,22 +47,34 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void login(View view) {
-        Intent intent = new Intent(this, ForumActivity.class);
+
         EditText editTextUserLogin = (EditText) findViewById(R.id.userLogin);
         EditText editTextPasswdLogin = (EditText) findViewById(R.id.passwdLogin);
-        CheckBox chkBoxRemember = (CheckBox) findViewById(R.id.checkBoxRemindLogin);
-        String login = editTextUserLogin.getText().toString();
-        String passwd = editTextPasswdLogin.getText().toString();
-        ServerConnection srvConn = new ServerConnection();
-        if (srvConn.verificaLogin(login, passwd)) {
-            if (chkBoxRemember.isChecked())
-                saveLogin(login, passwd);
-            intent.putExtra(ForumActivity.LOGIN_ID, login);
-            intent.putExtra(ForumActivity.LOGIN_PASS, passwd);
-            startActivity(intent);
-        } else {
-            Toast.makeText(getApplicationContext(), R.string.loginRegNOK, Toast.LENGTH_SHORT).show();
-        }
+        user = editTextUserLogin.getText().toString();
+        pass = editTextPasswdLogin.getText().toString();
+
+        srvConn= new ServerConnection(getResources().getString(R.string.baseUrl));
+
+        new ProgressTask<Boolean>(this){
+            @Override
+            protected Boolean work() throws Exception {
+                return srvConn.verificaLogin(user,pass);
+            }
+            @Override
+            protected void onFinish(Boolean result) {
+                if (result) {
+                    CheckBox chkBoxRemember = (CheckBox) findViewById(R.id.checkBoxRemindLogin);
+                    if (chkBoxRemember.isChecked())
+                        saveLogin(user, pass);
+                    Intent intent = new Intent(context, ForumActivity.class);
+                    intent.putExtra(ForumActivity.LOGIN_ID, user);
+                    intent.putExtra(ForumActivity.LOGIN_PASS, pass);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getApplicationContext(), R.string.loginRegNOK, Toast.LENGTH_SHORT).show();
+                }
+            }
+        }.execute();
     }
 
     private void saveLogin(String login, String pass){

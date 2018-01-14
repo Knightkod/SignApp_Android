@@ -61,6 +61,7 @@
     <string name="uploadVideoTitle">Introduzca URL:</string>
     <string name="urlHint" translatable="false">http://dropbox.com/.......</string>
     <string name="connecting">Conectando...</string>
+    <string name="baseUrl">http://u017633.ehu.eus:28080/SignApp_server/rest/SignApp</string>
 
 
 </resources>

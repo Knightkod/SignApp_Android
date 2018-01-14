@@ -8,9 +8,13 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import eus.ehu.intel.signapp.Modelo.ProgressTask;
 import eus.ehu.intel.signapp.Modelo.ServerConnection;
 
 public class RegisterActivity extends AppCompatActivity {
+
+    private ServerConnection srvConn;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,17 +23,29 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void register(View view) {
-        Intent intent = new Intent();
-        String login = ((EditText) findViewById(R.id.userRegister)).getText().toString();
-        String passwd = ((EditText) findViewById(R.id.passwdRegister)).getText().toString();
-        ServerConnection srvConn = new ServerConnection();
-        if (srvConn.registro(login, passwd)) {
-            intent.putExtra(LoginActivity.USER_REG, login);
-            intent.putExtra(LoginActivity.PASSW_REG, passwd);
-            setResult(Activity.RESULT_OK, intent);
-            finish();
-        } else {
-            setResult(Activity.RESULT_CANCELED);
-        }
+        intent = new Intent();
+        final String login = ((EditText) findViewById(R.id.userRegister)).getText().toString();
+        final String passwd = ((EditText) findViewById(R.id.passwdRegister)).getText().toString();
+       srvConn = new ServerConnection(getResources().getString(R.string.baseUrl));
+
+        new ProgressTask<Boolean>(this){
+            @Override
+            protected Boolean work() throws Exception {
+                return srvConn.registro(login, passwd);
+            }
+
+            @Override
+            protected void onFinish(Boolean result) {
+                if (result) {
+                    intent.putExtra(LoginActivity.USER_REG, login);
+                    intent.putExtra(LoginActivity.PASSW_REG, passwd);
+                    setResult(Activity.RESULT_OK, intent);
+                    finish();
+                } else {
+                    setResult(Activity.RESULT_CANCELED);
+                    finish();
+                }
+            }
+        }.execute();
     }
 }

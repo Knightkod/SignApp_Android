@@ -1,5 +1,10 @@
 package eus.ehu.intel.signapp.Modelo;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,14 +17,27 @@ import eus.ehu.intel.signapp.R;
 
 public class ServerConnection implements ServerInterface {
 
+    private RestClient restClient;
+
+    public ServerConnection(String baseUrl){
+        restClient=new RestClient(baseUrl);
+    }
 
     @Override
     public boolean verificaLogin(String user, String password) {
-        /*puenteando consulta a server*/
         boolean verification=false;
-        if(user.equals("prueba")){
-            if(password.equals("prueba"))
-                verification=true;
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("nick", user);
+            jsonObject.put("password", password);
+            String resultCode = restClient.postJson(jsonObject, "login");
+           if(resultCode.equals("OK"))
+                    verification = true;
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return verification;
     }
@@ -28,9 +46,18 @@ public class ServerConnection implements ServerInterface {
     public boolean registro(String user, String password) {
             /*puenteando registro a server*/
         boolean verification=false;
-        if(!user.equals(null)&&!user.equals("")){
-            if(!password.equals(null)&&!password.equals(""))
-                verification=true;
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("nick", user);
+            jsonObject.put("password", password);
+            String resultCode = restClient.postJson(jsonObject, "addUser");
+            if(resultCode.equals("OK"))
+                verification = true;
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return verification;
     }
