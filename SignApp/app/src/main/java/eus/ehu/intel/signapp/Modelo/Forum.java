@@ -1,10 +1,12 @@
 package eus.ehu.intel.signapp.Modelo;
 
+import java.io.Serializable;
+
 /**
  * Created by iubuntu on 31/12/17.
  */
 
-public class Forum {
+public class Forum implements Serializable{
 
     private int id;
     private String nick;

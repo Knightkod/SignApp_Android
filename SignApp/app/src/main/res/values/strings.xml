@@ -60,6 +60,7 @@
     <string name="dropboxContentURL" translatable="false">https://dl.dropboxusercontent.com/s/</string>
     <string name="uploadVideoTitle">Introduzca URL:</string>
     <string name="urlHint" translatable="false">http://dropbox.com/.......</string>
+    <string name="connecting">Conectando...</string>
 
 
 </resources>

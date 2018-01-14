@@ -1,11 +1,13 @@
 package eus.ehu.intel.signapp.Modelo;
 
+import java.io.Serializable;
+
 /**
  * Created by iubuntu on 31/12/17.
  */
 
 
-public class User {
+public class User implements Serializable{
 
     private String nick;
     private String password;
