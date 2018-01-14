@@ -16,6 +16,11 @@ public class LoginActivity extends AppCompatActivity {
     private static final String SHARED_PREF_USERLOGIN = "userLogin";
     private static final String SHARED_PREF_USERPASS = "userPass";
 
+    public static final String USER_REG="userReg";
+    public static final String PASSW_REG="passReg";
+
+    public static final int REGISTER_REQ_CODE=1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,8 +69,22 @@ public class LoginActivity extends AppCompatActivity {
 
     public void toRegister(View view) {
         Intent intent = new Intent(this, RegisterActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent,REGISTER_REQ_CODE);
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode,int resultCode, Intent data){
+
+        if(resultCode==RESULT_OK) {
+            EditText editTextUserLogin = (EditText) findViewById(R.id.userLogin);
+            EditText editTextPasswdLogin = (EditText) findViewById(R.id.passwdLogin);
+            editTextUserLogin.setText(data.getStringExtra(USER_REG));
+            editTextPasswdLogin.setText(data.getStringExtra(PASSW_REG));
+        }
+        else{
+            Toast.makeText(getApplicationContext(),R.string.loginRegNOK,Toast.LENGTH_SHORT).show();;
+        }
     }
 
 }

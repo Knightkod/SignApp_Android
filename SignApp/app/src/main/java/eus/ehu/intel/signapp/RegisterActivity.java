@@ -1,5 +1,6 @@
 package eus.ehu.intel.signapp;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,16 +19,17 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void register(View view) {
-        Intent intent = new Intent(this,LoginActivity.class);
-        String login = ((EditText)findViewById(R.id.userRegister)).getText().toString();
-        String passwd = ((EditText)findViewById(R.id.passwdRegister)).getText().toString();
-        ServerConnection srvConn=new ServerConnection();
-        if(srvConn.registro(login,passwd)){
-            Toast.makeText(getApplicationContext(),R.string.loginRegOK,Toast.LENGTH_SHORT).show();
-            startActivity(intent);
-        }
-        else{
-            Toast.makeText(getApplicationContext(),R.string.loginRegNOK,Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent();
+        String login = ((EditText) findViewById(R.id.userRegister)).getText().toString();
+        String passwd = ((EditText) findViewById(R.id.passwdRegister)).getText().toString();
+        ServerConnection srvConn = new ServerConnection();
+        if (srvConn.registro(login, passwd)) {
+            intent.putExtra(LoginActivity.USER_REG, login);
+            intent.putExtra(LoginActivity.PASSW_REG, passwd);
+            setResult(Activity.RESULT_OK, intent);
+            finish();
+        } else {
+            setResult(Activity.RESULT_CANCELED);
         }
     }
 }
