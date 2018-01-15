@@ -38,14 +38,41 @@ public class ForumActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum);
-
+        srvConn = new ServerConnection(getResources().getString(R.string.baseUrl));
         context=this;
         Intent intent = getIntent();
         userLogin = intent.getStringExtra(LOGIN_ID);
         userPass = intent.getStringExtra(LOGIN_PASS);
-        ServerConnection srvCx = new ServerConnection(getResources().getString(R.string.baseUrl));
-        printUserQuestions(this, srvCx.recibirPreguntasUsuario(userLogin));
-        printOthersQuestions(this, srvCx.recibirPreguntasOtrosUsuarios(userLogin));
+
+        new ProgressTask<List<Forum>>(context) {
+            @Override
+            protected List<Forum> work() throws Exception {
+                return  srvConn.recibirPreguntasUsuario(userLogin);
+            }
+            @Override
+            protected void onFinish(List<Forum> result) {
+                if (result!=null) {
+                    printUserQuestions(context,result);
+                   otherUserThings();
+                }
+            }
+        }.execute();
+
+    }
+
+    private void otherUserThings(){
+        new ProgressTask<List<Forum>>(context) {
+            @Override
+            protected List<Forum> work() throws Exception {
+                return srvConn.recibirPreguntasOtrosUsuarios(userLogin);
+            }
+            @Override
+            protected void onFinish(List<Forum> result) {
+                if (result!=null) {
+                    printOthersQuestions(context,result);
+                }
+            }
+        }.execute();
     }
 
     private void printUserQuestions(Context context, List<Forum> foro) {
@@ -111,11 +138,21 @@ public class ForumActivity extends AppCompatActivity {
 
 
     public void sendQuest(View view) {
-        String questText = ((EditText) findViewById(R.id.questionText)).getText().toString();
-        ServerConnection srvCx = new ServerConnection(getResources().getString(R.string.baseUrl));
-        if (srvCx.subirPregunta(userLogin, userPass, questText)) {
-            Toast.makeText(getApplicationContext(), "AllOKQuestion", Toast.LENGTH_SHORT).show();
-        }
+        final String questText = ((EditText) findViewById(R.id.questionText)).getText().toString();
+       srvConn = new ServerConnection(getResources().getString(R.string.baseUrl));
+
+        new ProgressTask<Boolean>(context) {
+            @Override
+            protected Boolean work() throws Exception {
+                return srvConn.subirPregunta(userLogin, userPass, questText);
+            }
+            @Override
+            protected void onFinish(Boolean result) {
+                if (result) {
+                    Toast.makeText(getApplicationContext(), "AllOKQuestion", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }.execute();
     }
 
     public void uploadVideoPopUp(int questId) {
