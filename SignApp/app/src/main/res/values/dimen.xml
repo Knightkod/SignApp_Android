@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="buttonTextSize">20sp</dimen>
+
     <dimen name="titleSize">30sp</dimen>
     <dimen name="textSize">15sp</dimen>
     <dimen name="forumButtonTextSize">5sp</dimen>
-    <dimen name="buttonMargin">20dp</dimen>
+    <dimen name="otherUsersTitle">260dp</dimen>
+
     <dimen name="standardViewMargin">30dp</dimen>
     <dimen name="forumButtonMargin">15dp</dimen>
-
     <dimen name="layoutPadding">24dp</dimen>
     <dimen name="genInfoPadding">1dp</dimen>
     <dimen name="dialogElemVerticalMargins">10dp</dimen>
+
     <dimen name="sectionSeparator">1dp</dimen>
 
     <dimen name="genInfoController">60dp</dimen>
+
+    <dimen name="buttonTextSize">20sp</dimen>
+    <dimen name="buttonMargin">20dp</dimen>
+    <dimen name="forumButton">186dp</dimen>
+    <dimen name="infoButtonWidth">28dp</dimen>
+    <dimen name="infoButtonHeight">34dp</dimen>
 
 </resources>

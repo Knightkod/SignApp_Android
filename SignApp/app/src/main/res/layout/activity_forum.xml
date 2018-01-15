@@ -43,7 +43,7 @@
 
             <Button
                 android:id="@+id/buttonSendQuest"
-                android:layout_width="186dp"
+                android:layout_width="@dimen/forumButton"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="@dimen/buttonMargin"
@@ -86,7 +86,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:layout_width="308dp"
+                    android:layout_width="@dimen/otherUsersTitle"
                     android:layout_height="wrap_content"
                     android:text="@string/resp"
                     android:textColor="@color/textColor"
@@ -94,8 +94,8 @@
                     android:textStyle="bold" />
 
                 <ImageButton
-                    android:layout_width="28dp"
-                    android:layout_height="34dp"
+                    android:layout_width="@dimen/infoButtonWidth"
+                    android:layout_height="@dimen/infoButtonHeight"
                     android:adjustViewBounds="true"
                     android:background="@color/colorPrimary"
                     android:onClick="uploadInfoPopup"
@@ -118,7 +118,7 @@
 
             <Button
                 android:id="@+id/buttonLogOut"
-                android:layout_width="186dp"
+                android:layout_width="@dimen/forumButton"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="@dimen/buttonMargin"
