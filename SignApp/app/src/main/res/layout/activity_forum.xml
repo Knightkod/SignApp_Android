@@ -43,7 +43,7 @@
 
             <Button
                 android:id="@+id/buttonSendQuest"
-                android:layout_width="@dimen/forumButton"
+                android:layout_width="@dimen/loginForumButton"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="@dimen/buttonMargin"
@@ -118,7 +118,7 @@
 
             <Button
                 android:id="@+id/buttonLogOut"
-                android:layout_width="@dimen/forumButton"
+                android:layout_width="@dimen/loginForumButton"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="@dimen/buttonMargin"

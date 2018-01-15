@@ -18,7 +18,11 @@
 
     <dimen name="buttonTextSize">20sp</dimen>
     <dimen name="buttonMargin">20dp</dimen>
-    <dimen name="forumButton">186dp</dimen>
+    <dimen name="menuButton">250dp</dimen>
+    <dimen name="mainWindowButton">184dp</dimen>
+    <dimen name="mainWindowImageWidth">441dp</dimen>
+    <dimen name="mainWindowImageHeight">110dp</dimen>
+    <dimen name="loginForumButton">186dp</dimen>
     <dimen name="infoButtonWidth">28dp</dimen>
     <dimen name="infoButtonHeight">34dp</dimen>
 

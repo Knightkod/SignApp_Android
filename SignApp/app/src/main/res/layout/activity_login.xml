@@ -52,7 +52,7 @@
         android:columnCount="2">
         <Button
         android:id="@+id/buttonLogin"
-        android:layout_width="186dp"
+        android:layout_width="@dimen/loginForumButton"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="@dimen/buttonMargin"
@@ -74,7 +74,7 @@
 
     <Button
         android:id="@+id/buttonRegister"
-        android:layout_width="186dp"
+        android:layout_width="@dimen/loginForumButton"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_margin="@dimen/buttonMargin"

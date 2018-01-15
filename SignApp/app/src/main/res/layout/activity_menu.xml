@@ -11,7 +11,7 @@
 
     <Button
         android:id="@+id/buttonGenInfo"
-        android:layout_width="250dp"
+        android:layout_width="@dimen/menuButton"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@color/colorPrimary"
@@ -22,7 +22,7 @@
 
     <Button
         android:id="@+id/buttonTraductor"
-        android:layout_width="250dp"
+        android:layout_width="@dimen/menuButton"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/buttonMargin"
@@ -33,7 +33,7 @@
         android:onClick="toTraductor"/>
     <Button
         android:id="@+id/buttonAlphab"
-        android:layout_width="250dp"
+        android:layout_width="@dimen/menuButton"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/buttonMargin"
@@ -44,7 +44,7 @@
         android:onClick="toAlphab"/>
     <Button
         android:id="@+id/buttonForum"
-        android:layout_width="250dp"
+        android:layout_width="@dimen/menuButton"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/buttonMargin"
@@ -55,7 +55,7 @@
         android:onClick="toForum"/>
     <Button
         android:id="@+id/buttonRecordVideo"
-        android:layout_width="250dp"
+        android:layout_width="@dimen/menuButton"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/buttonMargin"

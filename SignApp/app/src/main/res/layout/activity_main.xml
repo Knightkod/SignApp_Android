@@ -13,7 +13,7 @@
 
     <Button
         android:id="@+id/buttonMainEU"
-        android:layout_width="184dp"
+        android:layout_width="@dimen/mainWindowButton"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/buttonMainEU"
@@ -25,15 +25,15 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="441dp"
-        android:layout_height="110dp"
+        android:layout_width="@dimen/mainWindowImageWidth"
+        android:layout_height="@dimen/mainWindowImageHeight"
         android:layout_weight="0.32"
         android:layout_gravity="center"
         android:src="@drawable/web_hi_res_512"
         />
     <Button
         android:id="@+id/buttonMainES"
-        android:layout_width="184dp"
+        android:layout_width="@dimen/mainWindowButton"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/buttonMainES"
