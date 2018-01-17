@@ -1,16 +1,20 @@
 package eus.ehu.intel.signapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import eus.ehu.intel.signapp.Modelo.ProgressTask;
 import eus.ehu.intel.signapp.Modelo.ServerConnection;
+import eus.ehu.intel.signapp.Presentacion.CustomToast;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -26,11 +30,17 @@ public class LoginActivity extends AppCompatActivity {
     public String pass;
 
     private ServerConnection srvConn;
+    private ConnectivityManager connMngr;
+    private NetworkInfo networkInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        connMngr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        networkInfo=connMngr.getActiveNetworkInfo();
+
 
         EditText editTextUserLogin = (EditText) findViewById(R.id.userLogin);
         EditText editTextPasswdLogin = (EditText) findViewById(R.id.passwdLogin);
@@ -62,6 +72,7 @@ public class LoginActivity extends AppCompatActivity {
             }
             @Override
             protected void onFinish(Boolean result) {
+                LayoutInflater inflater = getLayoutInflater();
                 if (result) {
                     CheckBox chkBoxRemember = (CheckBox) findViewById(R.id.checkBoxRemindLogin);
                     if (chkBoxRemember.isChecked())
@@ -70,8 +81,9 @@ public class LoginActivity extends AppCompatActivity {
                     intent.putExtra(ForumActivity.LOGIN_ID, user);
                     intent.putExtra(ForumActivity.LOGIN_PASS, pass);
                     startActivity(intent);
+                    CustomToast.createToast("success",context.getResources().getString(R.string.loginOK),inflater,context);
                 } else {
-                    Toast.makeText(getApplicationContext(), R.string.loginRegNOK, Toast.LENGTH_SHORT).show();
+                    CustomToast.createToast("error",context.getResources().getString(R.string.loginRegNOK),inflater,context);
                 }
             }
         }.execute();
@@ -93,15 +105,16 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode,int resultCode, Intent data){
-
+        LayoutInflater inflater = getLayoutInflater();
         if(resultCode==RESULT_OK) {
             EditText editTextUserLogin = (EditText) findViewById(R.id.userLogin);
             EditText editTextPasswdLogin = (EditText) findViewById(R.id.passwdLogin);
             editTextUserLogin.setText(data.getStringExtra(USER_REG));
             editTextPasswdLogin.setText(data.getStringExtra(PASSW_REG));
+            CustomToast.createToast("success",this.getResources().getString(R.string.loginRegOK),inflater,this);
         }
         else{
-            Toast.makeText(getApplicationContext(),R.string.loginRegNOK,Toast.LENGTH_SHORT).show();;
+            CustomToast.createToast("error",this.getResources().getString(R.string.loginRegNOK),inflater,this);
         }
     }
 

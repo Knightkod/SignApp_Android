@@ -51,4 +51,5 @@
     <string name="videoOk">Bideoa ondo grabatu da</string>
     <string name="uploadVideoTitle">Sartu URL:</string>
     <string name="connecting">Konektatzen...</string>
+    <string name="warnNoWifi">Kontuz! Sare mugikorra erabiltzen ari zara.</string>
 </resources>
