@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import eus.ehu.intel.signapp.Modelo.ProgressTask;
 import eus.ehu.intel.signapp.Modelo.ServerConnection;

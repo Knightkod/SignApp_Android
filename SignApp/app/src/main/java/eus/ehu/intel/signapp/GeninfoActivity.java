@@ -1,6 +1,5 @@
 package eus.ehu.intel.signapp;
 
-import android.media.MediaPlayer;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.io.IOException;
-import java.util.Locale;
 
 import eus.ehu.intel.signapp.Modelo.AudioPlayer;
 import eus.ehu.intel.signapp.Modelo.LanguageGestor;

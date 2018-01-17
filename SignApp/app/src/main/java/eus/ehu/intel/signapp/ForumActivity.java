@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 import android.widget.RelativeLayout.LayoutParams;
 
 import java.util.List;
@@ -19,6 +18,7 @@ import java.util.List;
 import eus.ehu.intel.signapp.Modelo.Forum;
 import eus.ehu.intel.signapp.Modelo.ProgressTask;
 import eus.ehu.intel.signapp.Modelo.ServerConnection;
+import eus.ehu.intel.signapp.Presentacion.CustomToast;
 import eus.ehu.intel.signapp.Presentacion.VideoButton;
 
 public class ForumActivity extends AppCompatActivity {
@@ -148,9 +148,13 @@ public class ForumActivity extends AppCompatActivity {
             }
             @Override
             protected void onFinish(Boolean result) {
+                LayoutInflater inflater = getLayoutInflater();
                 if (result) {
-                    Toast.makeText(getApplicationContext(), "AllOKQuestion", Toast.LENGTH_SHORT).show();
+                    CustomToast.createToast("success",context.getResources().getString(R.string.questSendOk),inflater,context);
                 }
+                else
+                    CustomToast.createToast("error",context.getResources().getString(R.string.questSendErr),inflater,context);
+
             }
         }.execute();
     }
@@ -179,9 +183,13 @@ public class ForumActivity extends AppCompatActivity {
                     }
                     @Override
                     protected void onFinish(Boolean result) {
+                        LayoutInflater inflater = getLayoutInflater();
                         if (result) {
-                            Toast.makeText(getApplicationContext(), "AllOKResponse, con id: " + Integer.toString(questId) + " y url " + responseURL, Toast.LENGTH_SHORT).show();
+                            CustomToast.createToast("success",context.getResources().getString(R.string.respSendOk),inflater,context);
                         }
+                        else
+                            CustomToast.createToast("error",context.getResources().getString(R.string.respSendErr),inflater,context);
+
                         dialog.dismiss();
                     }
                 }.execute();

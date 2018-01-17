@@ -1,18 +1,14 @@
 package eus.ehu.intel.signapp;
 
-import android.graphics.Color;
-import android.support.annotation.IntegerRes;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
 
-import java.util.List;
-
+import eus.ehu.intel.signapp.Presentacion.CustomToast;
 import eus.ehu.intel.signapp.Presentacion.VideoButton;
 
 public class TraductorActivity extends AppCompatActivity {
@@ -40,6 +36,17 @@ public class TraductorActivity extends AppCompatActivity {
 
 
     public void viewVideo(View view) {
-        videoButton.showVideo(view,urlTraductor[Integer.parseInt(view.getTag().toString())-1],this);
+
+        ConnectivityManager connMngr=(ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo=connMngr.getActiveNetworkInfo();
+        LayoutInflater inflater = getLayoutInflater();
+        if(networkInfo!=null && networkInfo.isConnected()) {
+            if (networkInfo.getType() != ConnectivityManager.TYPE_WIFI)
+                CustomToast.createToast("warning", this.getResources().getString(R.string.warnNoWifi), inflater, this);
+            videoButton.showVideo(view, urlTraductor[Integer.parseInt(view.getTag().toString()) - 1], this);
+        }
+        else
+            CustomToast.createToast("error", this.getResources().getString(R.string.cxerr), inflater, this);
+
     }
 }

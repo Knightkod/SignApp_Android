@@ -6,8 +6,10 @@ import android.content.pm.PackageManager;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Toast;
+
+import eus.ehu.intel.signapp.Presentacion.CustomToast;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -36,8 +38,9 @@ public class MenuActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void recordVideo(View view){
+        LayoutInflater inflater=getLayoutInflater();
         if(!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)){
-            Toast.makeText(getApplicationContext(),R.string.noCamera,Toast.LENGTH_SHORT).show();
+            CustomToast.createToast("error",this.getResources().getString(R.string.noCamera),inflater,this);
         }
         else{
             Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
@@ -47,19 +50,15 @@ public class MenuActivity extends AppCompatActivity {
 
     }
 
-    public void grabaVideo(View view){
-
-    }
-
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         if(resultCode!= Activity.RESULT_OK)
             return ;
 
+        LayoutInflater inflater = getLayoutInflater();
         switch (requestCode){
             case VIDEO_REQUEST_CODE:
-                Toast.makeText(this,R.string.videoOk,Toast.LENGTH_SHORT).show();
+                CustomToast.createToast("success",this.getResources().getString(R.string.videoOk),inflater,this);
                 data.getData();
-                //falta el tratamiento que se le da al video una vez grabado, en este caso llamar a dropbox para subirlo
                 break;
         }
     }

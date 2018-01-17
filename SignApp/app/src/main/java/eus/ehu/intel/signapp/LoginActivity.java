@@ -38,10 +38,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        connMngr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        networkInfo=connMngr.getActiveNetworkInfo();
-
-
         EditText editTextUserLogin = (EditText) findViewById(R.id.userLogin);
         EditText editTextPasswdLogin = (EditText) findViewById(R.id.passwdLogin);
         CheckBox chkBoxRemember = (CheckBox) findViewById(R.id.checkBoxRemindLogin);
