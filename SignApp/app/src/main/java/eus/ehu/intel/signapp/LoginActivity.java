@@ -21,17 +21,15 @@ public class LoginActivity extends AppCompatActivity {
     private static final String SHARED_PREF_USERLOGIN = "userLogin";
     private static final String SHARED_PREF_USERPASS = "userPass";
 
-    public static final String USER_REG="userReg";
-    public static final String PASSW_REG="passReg";
+    public static final String USER_REG = "userReg";
+    public static final String PASSW_REG = "passReg";
 
-    public static final int REGISTER_REQ_CODE=1;
+    public static final int REGISTER_REQ_CODE = 1;
 
     public String user;
     public String pass;
 
     private ServerConnection srvConn;
-    private ConnectivityManager connMngr;
-    private NetworkInfo networkInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,26 +44,36 @@ public class LoginActivity extends AppCompatActivity {
         pass = prefs.getString(SHARED_PREF_USERPASS, null);
         if (user != null)
             editTextUserLogin.setText(user);
-        if (pass != null){
+        if (pass != null) {
             editTextPasswdLogin.setText(pass);
             chkBoxRemember.setChecked(true);
         }
     }
 
     public void login(View view) {
+        ConnectivityManager connMngr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMngr.getActiveNetworkInfo();
+        LayoutInflater inflater = getLayoutInflater();
+        if (networkInfo != null && networkInfo.isConnected()) {
+            EditText editTextUserLogin = (EditText) findViewById(R.id.userLogin);
+            EditText editTextPasswdLogin = (EditText) findViewById(R.id.passwdLogin);
+            user = editTextUserLogin.getText().toString();
+            pass = editTextPasswdLogin.getText().toString();
 
-        EditText editTextUserLogin = (EditText) findViewById(R.id.userLogin);
-        EditText editTextPasswdLogin = (EditText) findViewById(R.id.passwdLogin);
-        user = editTextUserLogin.getText().toString();
-        pass = editTextPasswdLogin.getText().toString();
+            srvConn = new ServerConnection(getResources().getString(R.string.baseUrl));
+            sendLoginToServer(this);
 
-        srvConn= new ServerConnection(getResources().getString(R.string.baseUrl));
+        } else
+            CustomToast.createToast("error", this.getResources().getString(R.string.cxerr), inflater, this);
+    }
 
-        new ProgressTask<Boolean>(this){
+    public void sendLoginToServer(Context contxt){
+        new ProgressTask<Boolean>(contxt) {
             @Override
             protected Boolean work() throws Exception {
-                return srvConn.verificaLogin(user,pass);
+                return srvConn.verificaLogin(user, pass);
             }
+
             @Override
             protected void onFinish(Boolean result) {
                 LayoutInflater inflater = getLayoutInflater();
@@ -77,40 +85,39 @@ public class LoginActivity extends AppCompatActivity {
                     intent.putExtra(ForumActivity.LOGIN_ID, user);
                     intent.putExtra(ForumActivity.LOGIN_PASS, pass);
                     startActivity(intent);
-                    CustomToast.createToast("success",context.getResources().getString(R.string.loginOK),inflater,context);
+                    CustomToast.createToast("success", context.getResources().getString(R.string.loginOK), inflater, context);
                 } else {
-                    CustomToast.createToast("error",context.getResources().getString(R.string.loginRegNOK),inflater,context);
+                    CustomToast.createToast("error", context.getResources().getString(R.string.loginRegNOK), inflater, context);
                 }
             }
         }.execute();
     }
 
-    private void saveLogin(String login, String pass){
-        SharedPreferences prefs=getPreferences(MODE_PRIVATE);
+    private void saveLogin(String login, String pass) {
+        SharedPreferences prefs = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putString(SHARED_PREF_USERLOGIN,login);
-        editor.putString(SHARED_PREF_USERPASS,pass);
+        editor.putString(SHARED_PREF_USERLOGIN, login);
+        editor.putString(SHARED_PREF_USERPASS, pass);
         editor.commit();
     }
 
     public void toRegister(View view) {
         Intent intent = new Intent(this, RegisterActivity.class);
-        startActivityForResult(intent,REGISTER_REQ_CODE);
+        startActivityForResult(intent, REGISTER_REQ_CODE);
 
     }
 
     @Override
-    protected void onActivityResult(int requestCode,int resultCode, Intent data){
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         LayoutInflater inflater = getLayoutInflater();
-        if(resultCode==RESULT_OK) {
+        if (resultCode == RESULT_OK) {
             EditText editTextUserLogin = (EditText) findViewById(R.id.userLogin);
             EditText editTextPasswdLogin = (EditText) findViewById(R.id.passwdLogin);
             editTextUserLogin.setText(data.getStringExtra(USER_REG));
             editTextPasswdLogin.setText(data.getStringExtra(PASSW_REG));
-            CustomToast.createToast("success",this.getResources().getString(R.string.loginRegOK),inflater,this);
-        }
-        else{
-            CustomToast.createToast("error",this.getResources().getString(R.string.loginRegNOK),inflater,this);
+            CustomToast.createToast("success", this.getResources().getString(R.string.loginRegOK), inflater, this);
+        } else {
+            CustomToast.createToast("error", this.getResources().getString(R.string.loginRegNOK), inflater, this);
         }
     }
 

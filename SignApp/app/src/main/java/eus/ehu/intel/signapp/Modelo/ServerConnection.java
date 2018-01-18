@@ -1,5 +1,7 @@
 package eus.ehu.intel.signapp.Modelo;
 
+import android.content.Context;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -75,6 +77,7 @@ public class ServerConnection implements ServerInterface {
                 forumAux.setId(item.getInt("id"));
                 forumAux.setQuestion(item.getString("question"));
                 forumAux.setDate(item.getInt("date"));
+                forumAux.setResp(item.optString("resp",null));
                 listForumAux.add(forumAux);
             }
         } catch (IOException e) {
@@ -138,13 +141,13 @@ public class ServerConnection implements ServerInterface {
 
     @Override
     public boolean enviarUrlRespuesta(String user, String password, int id_pregunta, String
-            urlRespuesta) {
+            urlRespuesta, Context context) {
         boolean verification=false;
         JSONObject json = new JSONObject();
         String[] auxURL = urlRespuesta.split("/");
         String url = "";
         if (auxURL.length >= 5) {
-            url = Integer.toString(R.string.dropboxContentURL) + auxURL[4] + "/" + auxURL[5];
+            url = context.getResources().getString(R.string.dropboxContentURL) + auxURL[4] + "/" + auxURL[5];
             try {
                 json.put("id",id_pregunta);
                 json.put("nick",user);

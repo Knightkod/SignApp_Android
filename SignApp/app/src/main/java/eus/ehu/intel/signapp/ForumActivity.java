@@ -3,6 +3,8 @@ package eus.ehu.intel.signapp;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -39,7 +41,7 @@ public class ForumActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum);
         srvConn = new ServerConnection(getResources().getString(R.string.baseUrl));
-        context=this;
+        context = this;
         Intent intent = getIntent();
         userLogin = intent.getStringExtra(LOGIN_ID);
         userPass = intent.getStringExtra(LOGIN_PASS);
@@ -47,35 +49,37 @@ public class ForumActivity extends AppCompatActivity {
         new ProgressTask<List<Forum>>(context) {
             @Override
             protected List<Forum> work() throws Exception {
-                return  srvConn.recibirPreguntasUsuario(userLogin);
+                return srvConn.recibirPreguntasUsuario(userLogin);
             }
+
             @Override
             protected void onFinish(List<Forum> result) {
-                if (result!=null) {
-                    printUserQuestions(context,result);
-                   otherUserThings();
+                if (result != null) {
+                    printUserQuestions(result);
+                    otherUserThings();
                 }
             }
         }.execute();
 
     }
 
-    private void otherUserThings(){
+    private void otherUserThings() {
         new ProgressTask<List<Forum>>(context) {
             @Override
             protected List<Forum> work() throws Exception {
                 return srvConn.recibirPreguntasOtrosUsuarios(userLogin);
             }
+
             @Override
             protected void onFinish(List<Forum> result) {
-                if (result!=null) {
-                    printOthersQuestions(context,result);
+                if (result != null) {
+                    printOthersQuestions(context, result);
                 }
             }
         }.execute();
     }
 
-    private void printUserQuestions(Context context, List<Forum> foro) {
+    private void printUserQuestions(List<Forum> foro) {
         RelativeLayout linearLayout = (RelativeLayout) findViewById(R.id.myQuestionsLayout);
         int margin = (int) getResources().getDimension(R.dimen.forumButtonMargin);
         Button btn;
@@ -89,8 +93,16 @@ public class ForumActivity extends AppCompatActivity {
                 btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Activity activity = (Activity) v.getContext();
-                        videoButton.showVideo(v, (String) v.getTag(), activity);
+                        ConnectivityManager connMngr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                        NetworkInfo networkInfo = connMngr.getActiveNetworkInfo();
+                        LayoutInflater inflater = getLayoutInflater();
+                        if (networkInfo != null && networkInfo.isConnected()) {
+                            if (networkInfo.getType() != ConnectivityManager.TYPE_WIFI)
+                                CustomToast.createToast("warning", context.getResources().getString(R.string.warnNoWifi), inflater, context);
+                            Activity activity = (Activity) v.getContext();
+                            videoButton.showVideo(v, (String) v.getTag(), activity);
+                        } else
+                            CustomToast.createToast("error", context.getResources().getString(R.string.cxerr), inflater, context);
                     }
                 });
             }
@@ -139,64 +151,77 @@ public class ForumActivity extends AppCompatActivity {
 
     public void sendQuest(View view) {
         final String questText = ((EditText) findViewById(R.id.questionText)).getText().toString();
-       srvConn = new ServerConnection(getResources().getString(R.string.baseUrl));
 
-        new ProgressTask<Boolean>(context) {
-            @Override
-            protected Boolean work() throws Exception {
-                return srvConn.subirPregunta(userLogin, userPass, questText);
-            }
-            @Override
-            protected void onFinish(Boolean result) {
-                LayoutInflater inflater = getLayoutInflater();
-                if (result) {
-                    CustomToast.createToast("success",context.getResources().getString(R.string.questSendOk),inflater,context);
+        ConnectivityManager connMngr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMngr.getActiveNetworkInfo();
+        LayoutInflater inflater = getLayoutInflater();
+        if (networkInfo != null && networkInfo.isConnected()) {
+            srvConn = new ServerConnection(getResources().getString(R.string.baseUrl));
+            new ProgressTask<Boolean>(context) {
+                @Override
+                protected Boolean work() throws Exception {
+                    return srvConn.subirPregunta(userLogin, userPass, questText);
                 }
-                else
-                    CustomToast.createToast("error",context.getResources().getString(R.string.questSendErr),inflater,context);
 
-            }
-        }.execute();
+                @Override
+                protected void onFinish(Boolean result) {
+                    LayoutInflater inflater = getLayoutInflater();
+                    if (result) {
+                        CustomToast.createToast("success", context.getResources().getString(R.string.questSendOk), inflater, context);
+                    } else
+                        CustomToast.createToast("error", context.getResources().getString(R.string.questSendErr), inflater, context);
+                }
+            }.execute();
+        } else
+            CustomToast.createToast("error", context.getResources().getString(R.string.cxerr), inflater, context);
     }
 
     public void uploadVideoPopUp(int questId) {
         AlertDialog.Builder builder = new AlertDialog.Builder(ForumActivity.this);
-
         LayoutInflater inflater = ForumActivity.this.getLayoutInflater();
         final View view = inflater.inflate(R.layout.forum_upload_dialog, null);
-
         builder.setView(view);
         final AlertDialog dialog = builder.show();
+
         Button sendResponseURL = view.findViewById(R.id.buttonSendResponse);
         sendResponseURL.setTag(questId);
         sendResponseURL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                responseURL = ((EditText) view.findViewById(R.id.responseURL)).getText().toString();
-                final int questId = (int) v.getTag();
-                srvConn = new ServerConnection(getResources().getString(R.string.baseUrl));
-
-                new ProgressTask<Boolean>(context) {
-                    @Override
-                    protected Boolean work() throws Exception {
-                        return srvConn.enviarUrlRespuesta(userLogin, userPass, questId, responseURL);
-                    }
-                    @Override
-                    protected void onFinish(Boolean result) {
-                        LayoutInflater inflater = getLayoutInflater();
-                        if (result) {
-                            CustomToast.createToast("success",context.getResources().getString(R.string.respSendOk),inflater,context);
-                        }
-                        else
-                            CustomToast.createToast("error",context.getResources().getString(R.string.respSendErr),inflater,context);
-
-                        dialog.dismiss();
-                    }
-                }.execute();
+                ConnectivityManager connMngr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo networkInfo = connMngr.getActiveNetworkInfo();
+                LayoutInflater inflater = getLayoutInflater();
+                if (networkInfo != null && networkInfo.isConnected()) {
+                    sendResponseToServer(dialog, view, v);
+                } else
+                    CustomToast.createToast("error", context.getResources().getString(R.string.cxerr), inflater, context);
             }
         });
     }
 
+    private void sendResponseToServer(final AlertDialog dialog, View view, View v) {
+        responseURL = ((EditText) view.findViewById(R.id.responseURL)).getText().toString();
+        final int questId = (int) v.getTag();
+        srvConn = new ServerConnection(getResources().getString(R.string.baseUrl));
+
+        new ProgressTask<Boolean>(context) {
+            @Override
+            protected Boolean work() throws Exception {
+                return srvConn.enviarUrlRespuesta(userLogin, userPass, questId, responseURL,context);
+            }
+
+            @Override
+            protected void onFinish(Boolean result) {
+                LayoutInflater inflater = getLayoutInflater();
+                if (result) {
+                    CustomToast.createToast("success", context.getResources().getString(R.string.respSendOk), inflater, context);
+                } else
+                    CustomToast.createToast("error", context.getResources().getString(R.string.respSendErr), inflater, context);
+
+                dialog.dismiss();
+            }
+        }.execute();
+    }
 
     public void logout(View view) {
         Intent intent = new Intent(this, LoginActivity.class);
