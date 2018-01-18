@@ -46,10 +46,7 @@
             android:hint="@string/passwd"
             />
     </GridLayout>
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:columnCount="2">
+
         <Button
         android:id="@+id/buttonLogin"
         android:layout_width="@dimen/loginForumButton"
@@ -70,13 +67,12 @@
             android:text="@string/rememberMe"
             android:textSize="@dimen/textSize"
             android:textColor="@color/textColor"/>
-    </GridLayout>
 
     <Button
         android:id="@+id/buttonRegister"
         android:layout_width="@dimen/loginForumButton"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
+        android:layout_gravity="center"
         android:layout_margin="@dimen/buttonMargin"
         android:background="@color/colorPrimary"
         android:text="@string/registerButton"
