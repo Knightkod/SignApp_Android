@@ -3,6 +3,7 @@
 
     <dimen name="titleSize">30sp</dimen>
     <dimen name="textSize">15sp</dimen>
+    <dimen name="genInfoTextSize">5sp</dimen>
     <dimen name="forumButtonTextSize">5sp</dimen>
     <dimen name="otherUsersTitle">260dp</dimen>
 
@@ -25,6 +26,8 @@
     <dimen name="loginForumButton">186dp</dimen>
     <dimen name="infoButtonWidth">28dp</dimen>
     <dimen name="infoButtonHeight">34dp</dimen>
+    <dimen name="playStopButtonWidth">50dp</dimen>
+    <dimen name="playStopButtonHeight">50dp</dimen>
 
 
     <dimen name="customToastStrokeWidth">1dp</dimen>

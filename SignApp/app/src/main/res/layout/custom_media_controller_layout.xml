@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/playPauseImageButton"
+        android:layout_width="@dimen/playStopButtonHeight"
+        android:layout_height="@dimen/playStopButtonHeight"
+        android:scaleType="fitCenter"
+        android:layout_gravity="center_horizontal"
+         android:background="@android:color/transparent"
+         android:src="@drawable/play_blauw" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"/>
+    </GridLayout>
+
+</LinearLayout>

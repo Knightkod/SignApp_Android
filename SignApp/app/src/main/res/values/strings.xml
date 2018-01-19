@@ -15,16 +15,18 @@
     <string name="forumButton">Foro</string>
     <string name="videoButton">Grabar video</string>
     <string name="videoGrabado">Tu video</string>
+    <string-array name="genInfoTexts">
+        <item>¿Cuántas personas con problemas auditivos hay en el mundo?</item>
+        <item>¿Te gustaría conocer algunos consejos para hablar con una persona sorda sin saber lenguaje de signos?</item>
+        <item>¿Todas las lenguas de signos son iguales?</item>
+        <item>¿Bailan los sordos?</item>
+    </string-array>
     <string name="makeQuestButton">Enviar Pregunta</string>
     <string name="sendButton">Enviar</string>
     <string name="registerButton">Registrate</string>
     <string name="loginOK">Bienvenido</string>
     <string name="loginRegOK">Registro completado</string>
     <string name="loginRegNOK">Datos incorrectos, introduzcalos de nuevo por favor</string>
-    <string name="genInfo1">¿Cuántas personas con problemas auditivos hay en el mundo?</string>
-    <string name="genInfo2">¿Te gustaría conocer algunos consejos para hablar con una persona sorda sin saber lenguaje de signos?</string>
-    <string name="genInfo3">¿Todas las lenguas de signos son iguales?</string>
-    <string name="genInfo4">¿Bailan los sordos?</string>
     <string name="question">Tus preguntas</string>
     <string name="resp">Preguntas de otros usuarios</string>
     <string name="cxerr">No hay conexión a Internet</string>

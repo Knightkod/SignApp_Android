@@ -10,16 +10,18 @@
     <string name="forumButton">Foroa</string>
     <string name="videoButton">Bideoa grabatu</string>
     <string name="videoGrabado">Zure bideoa</string>
+    <string-array name="genInfoTexts">
+        <item>Zenbat pertsona gor daude munduan?</item>
+        <item>Nahiko zenuke zeinu hizkuntza jakin barik pertsona gor batekin komunikatzeko zenbait aholku jasotzea?</item>
+        <item>Zeinu hizkuntza denak berdinak dira?</item>
+        <item>Pertsona gorrek dantza egin ahal dute?</item>
+    </string-array>
     <string name="makeQuestButton">Galdera bidali</string>
     <string name="sendButton">Bidali</string>
     <string name="registerButton">Registratu</string>
     <string name="loginOK">Kaixo</string>
     <string name="loginRegOK">Registroa ondo egin da</string>
     <string name="loginRegNOK">Datu okerrak, mesedez sartu berriro</string>
-    <string name="genInfo1">Zenbat pertsona gor daude munduan?</string>
-    <string name="genInfo2">Nahiko zenuke zeinu hizkuntza jakin barik pertsona gor batekin komunikatzeko zenbait aholku jasotzea?</string>
-    <string name="genInfo3">Zeinu hizkuntza denak berdinak dira?</string>
-    <string name="genInfo4">Pertsona gorrek dantza egin ahal dute?</string>
     <string name="question">Zure galderak</string>
     <string name="resp">Beste pertsonen galderak</string>
     <string name="cxerr">Ez dago konexiorik</string>

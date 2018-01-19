@@ -18,30 +18,12 @@ import java.io.IOException;
 public class AudioPlayer implements MediaController.MediaPlayerControl, MediaPlayer.OnPreparedListener {
     private View view;
     private MediaPlayer player;
-    private MediaController controller;
 
     public AudioPlayer(final View view, final Runnable onExit){
         this.view=view;
         player=new MediaPlayer();
         player.setOnPreparedListener(this);
-        controller= new MediaController(view.getContext()){
-            @Override
-            public void hide(){
 
-            }
-
-            @Override
-            public boolean dispatchKeyEvent(KeyEvent event){
-                if(event.getKeyCode()==KeyEvent.KEYCODE_BACK){
-                    release();
-                    Activity activity=(Activity)view.getContext();
-                    activity.finish();
-                    //onExit.run();
-                }
-
-                return super.dispatchKeyEvent(event);
-            }
-        };
 
     }
 
@@ -62,10 +44,7 @@ public class AudioPlayer implements MediaController.MediaPlayerControl, MediaPla
 
     @Override
     public void onPrepared(MediaPlayer mp) {
-        controller.setMediaPlayer(this);
-        ViewGroup layout = (ViewGroup)view.getParent();
-        controller.setAnchorView(layout.getChildAt((layout.indexOfChild(view)+1)));
-        controller.show(0);
+
     }
 
     @Override
