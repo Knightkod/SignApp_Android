@@ -8,4 +8,13 @@
     <color name="buttonTextColor">#FFFFFF</color>
 
     <color name="sectionSeparator">#C8C9CB</color>
+
+    <color name="errorBorder">#ff0000</color>
+    <color name="errorContent">#ff8080</color>
+
+    <color name="warningBorder">#ffff00</color>
+    <color name="warningContent">#ffff99</color>
+
+    <color name="successBorder">#1aa3ff</color>
+    <color name="successContent">#b3e0ff</color>
 </resources>
