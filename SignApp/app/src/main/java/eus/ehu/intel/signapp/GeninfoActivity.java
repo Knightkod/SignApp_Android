@@ -18,13 +18,14 @@ import eus.ehu.intel.signapp.Modelo.LanguageGestor;
 public class GeninfoActivity extends AppCompatActivity {
 
     AudioPlayer[] audioPlayer={null,null,null,null};
+    private int cte=1536;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_geninfo);
 
-        int cte=1536;
         LayoutInflater inflater = getLayoutInflater();
         int margin = (int) getResources().getDimension(R.dimen.standardViewMargin);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
@@ -70,5 +71,30 @@ public class GeninfoActivity extends AppCompatActivity {
             imgButton.setId(i+cte);
 
         }
+    }
+
+    @Override
+    public void onStop(){
+        String[] genInfoTexts=getResources().getStringArray(R.array.genInfoTexts);
+        for(int i = 0; i < genInfoTexts.length;i++){
+            ((ImageButton)findViewById(i+cte)).setImageResource(R.drawable.play_blauw);
+            audioPlayer[i].pause();
+        }
+        super.onStop();
+
+
+
+    }
+
+    @Override
+    public void onDestroy(){
+
+        super.onDestroy();
+        String[] genInfoTexts=getResources().getStringArray(R.array.genInfoTexts);
+        for(int i = 0; i < genInfoTexts.length;i++){
+            audioPlayer[i].release();
+        }
+
+
     }
 }
