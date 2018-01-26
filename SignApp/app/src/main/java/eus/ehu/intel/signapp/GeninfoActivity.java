@@ -1,13 +1,16 @@
 package eus.ehu.intel.signapp;
 
 import android.net.Uri;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import java.io.IOException;
@@ -27,20 +30,12 @@ public class GeninfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_geninfo);
 
         LayoutInflater inflater = getLayoutInflater();
-        int margin = (int) getResources().getDimension(R.dimen.standardViewMargin);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT);
-        layoutParams.setMargins(0,margin,0,0);
+
+
         LinearLayout genInfoLayout = (LinearLayout)this.findViewById(R.id.genInfoLayout);
         String[] genInfoTexts=getResources().getStringArray(R.array.genInfoTexts);
         for(int i=0;i<genInfoTexts.length;i++){
-            TextView textView=new TextView(this);
-            textView.setLayoutParams(layoutParams);
-            textView.setText(genInfoTexts[i]);
-            textView.setTextColor(getResources().getColor(R.color.textColor));
-            textView.setTextSize(getResources().getDimension(R.dimen.genInfoTextSize));
-
-            genInfoLayout.addView(textView);
+            createTextView(genInfoLayout,genInfoTexts[i]);
             View otherView=inflater.inflate(R.layout.custom_media_controller_layout,genInfoLayout);
 
             try {
@@ -50,33 +45,17 @@ public class GeninfoActivity extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
+            SeekBar seekBar = otherView.findViewById(R.id.seekBar);
+            startSeekBar(seekBar,audioPlayer[i]);
             ImageButton imgButton = otherView.findViewById(R.id.playPauseImageButton);
-            imgButton.setTag(i);
-            imgButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ImageButton button = (ImageButton) v;
-                    int i = (Integer) v.getTag();
-                    if(!audioPlayer[i].isPlaying()) {
-                        button.setImageResource(R.drawable.circled_pause);
-                        audioPlayer[i].start();
-                    }
-                    else {
-                        button.setImageResource(R.drawable.play_blauw);
-                        audioPlayer[i].pause();
-                    }
-                }
-            });
-            imgButton.setId(i+cte);
+            startImageButton(imgButton,i);
 
         }
     }
 
     @Override
     public void onStop(){
-        String[] genInfoTexts=getResources().getStringArray(R.array.genInfoTexts);
-        for(int i = 0; i < genInfoTexts.length;i++){
+        for(int i = 0; i < audioPlayer.length;i++){
             ((ImageButton)findViewById(i+cte)).setImageResource(R.drawable.play_blauw);
             audioPlayer[i].pause();
         }
@@ -96,5 +75,90 @@ public class GeninfoActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    private void createTextView(LinearLayout genInfoLayout,String genInfoText){
+        int margin = (int) getResources().getDimension(R.dimen.standardViewMargin);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutParams.setMargins(0,margin,0,0);
+        TextView textView=new TextView(this);
+        textView.setLayoutParams(layoutParams);
+        textView.setText(genInfoText);
+        textView.setTextColor(getResources().getColor(R.color.textColor));
+        textView.setTextSize(getResources().getDimension(R.dimen.genInfoTextSize));
+
+        genInfoLayout.addView(textView);
+    }
+
+    private void startSeekBar(SeekBar seekBar, AudioPlayer audioPlayer){
+        seekBar.setId(cte*2);
+        seekBar.setMax(audioPlayer.getDuration());
+        seekBarListener(seekBar,audioPlayer);
+        seekBarPositionUpdate(seekBar,audioPlayer);
+
+
+    }
+
+    private void seekBarListener(SeekBar seekBar,final AudioPlayer audioPlayer){
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if(audioPlayer != null && fromUser){
+                    audioPlayer.seekTo(progress);
+                }
+            }
+        });
+    }
+
+    private void seekBarPositionUpdate(final SeekBar seekBar, final AudioPlayer audioPlayer){
+        final Handler mHandler = new Handler();
+        this.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if(audioPlayer != null){
+                    System.out.println("aaaa");
+                    int mCurrentPosition = audioPlayer.getCurrentPosition();
+                    seekBar.setProgress(mCurrentPosition);
+                    if(mCurrentPosition==audioPlayer.getDuration()) {
+                        GridLayout gridLayout = (GridLayout) seekBar.getParent();
+                        ImageButton button = (ImageButton)gridLayout.getChildAt(gridLayout.indexOfChild(seekBar)-1);
+                        button.setImageResource(R.drawable.play_blauw);
+                    }
+                }
+                mHandler.postDelayed(this, 1000);
+            }
+        });
+    }
+
+    private void startImageButton(ImageButton imgButton, int i){
+        imgButton.setTag(i);
+        imgButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageButton button = (ImageButton) v;
+                int i = (Integer) v.getTag();
+                if(!audioPlayer[i].isPlaying()) {
+                    button.setImageResource(R.drawable.circled_pause);
+                    audioPlayer[i].start();
+                }
+                else {
+                    button.setImageResource(R.drawable.play_blauw);
+                    audioPlayer[i].pause();
+                }
+            }
+        });
+        imgButton.setId(i+cte);
     }
 }
