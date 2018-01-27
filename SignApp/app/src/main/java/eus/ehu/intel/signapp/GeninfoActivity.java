@@ -20,7 +20,9 @@ import eus.ehu.intel.signapp.Modelo.LanguageGestor;
 
 public class GeninfoActivity extends AppCompatActivity {
 
-    AudioPlayer[] audioPlayer={null,null,null,null};
+    private AudioPlayer[] audioPlayer={null,null,null,null};
+    private Handler[] mHandler = {null,null,null,null};
+
     private int cte=1536;
 
 
@@ -46,7 +48,7 @@ public class GeninfoActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
             SeekBar seekBar = otherView.findViewById(R.id.seekBar);
-            startSeekBar(seekBar,audioPlayer[i]);
+            startSeekBar(seekBar,audioPlayer[i],i);
             ImageButton imgButton = otherView.findViewById(R.id.playPauseImageButton);
             startImageButton(imgButton,i);
 
@@ -72,6 +74,7 @@ public class GeninfoActivity extends AppCompatActivity {
         String[] genInfoTexts=getResources().getStringArray(R.array.genInfoTexts);
         for(int i = 0; i < genInfoTexts.length;i++){
             audioPlayer[i].release();
+            mHandler[i].removeCallbacksAndMessages(null);
         }
 
 
@@ -91,11 +94,11 @@ public class GeninfoActivity extends AppCompatActivity {
         genInfoLayout.addView(textView);
     }
 
-    private void startSeekBar(SeekBar seekBar, AudioPlayer audioPlayer){
+    private void startSeekBar(SeekBar seekBar, AudioPlayer audioPlayer, int i){
         seekBar.setId(cte*2);
         seekBar.setMax(audioPlayer.getDuration());
         seekBarListener(seekBar,audioPlayer);
-        seekBarPositionUpdate(seekBar,audioPlayer);
+        seekBarPositionUpdate(seekBar,audioPlayer,i);
 
 
     }
@@ -122,13 +125,12 @@ public class GeninfoActivity extends AppCompatActivity {
         });
     }
 
-    private void seekBarPositionUpdate(final SeekBar seekBar, final AudioPlayer audioPlayer){
-        final Handler mHandler = new Handler();
+    private void seekBarPositionUpdate(final SeekBar seekBar, final AudioPlayer audioPlayer,final int i){
+        mHandler[i]= new Handler();
         this.runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 if(audioPlayer != null){
-                    System.out.println("aaaa");
                     int mCurrentPosition = audioPlayer.getCurrentPosition();
                     seekBar.setProgress(mCurrentPosition);
                     if(mCurrentPosition==audioPlayer.getDuration()) {
@@ -137,7 +139,8 @@ public class GeninfoActivity extends AppCompatActivity {
                         button.setImageResource(R.drawable.play_blauw);
                     }
                 }
-                mHandler.postDelayed(this, 1000);
+
+                mHandler[i].postDelayed(this, 1000);
             }
         });
     }
