@@ -17,11 +17,11 @@ import android.widget.RelativeLayout.LayoutParams;
 
 import java.util.List;
 
-import eus.ehu.intel.signapp.Modelo.Forum;
-import eus.ehu.intel.signapp.Modelo.ProgressTask;
-import eus.ehu.intel.signapp.Modelo.ServerConnection;
-import eus.ehu.intel.signapp.Presentacion.CustomToast;
-import eus.ehu.intel.signapp.Presentacion.VideoButton;
+import eus.ehu.intel.signapp.modelo.Forum;
+import eus.ehu.intel.signapp.modelo.ProgressTask;
+import eus.ehu.intel.signapp.modelo.ServerConnection;
+import eus.ehu.intel.signapp.presentacion.CustomToast;
+import eus.ehu.intel.signapp.presentacion.VideoButton;
 
 public class ForumActivity extends AppCompatActivity {
     public static final String LOGIN_ID = "login";

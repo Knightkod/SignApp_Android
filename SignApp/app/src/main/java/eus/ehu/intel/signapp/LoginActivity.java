@@ -12,9 +12,9 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-import eus.ehu.intel.signapp.Modelo.ProgressTask;
-import eus.ehu.intel.signapp.Modelo.ServerConnection;
-import eus.ehu.intel.signapp.Presentacion.CustomToast;
+import eus.ehu.intel.signapp.modelo.ProgressTask;
+import eus.ehu.intel.signapp.modelo.ServerConnection;
+import eus.ehu.intel.signapp.presentacion.CustomToast;
 
 public class LoginActivity extends AppCompatActivity {
 

@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import eus.ehu.intel.signapp.Presentacion.CustomToast;
+import eus.ehu.intel.signapp.presentacion.CustomToast;
 
 public class MenuActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package eus.ehu.intel.signapp.Modelo;
+package eus.ehu.intel.signapp.modelo;
 
 import android.content.Context;
 
@@ -7,11 +7,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
-import eus.ehu.intel.signapp.Interfaces.ServerInterface;
+import eus.ehu.intel.signapp.interfaces.ServerInterface;
 import eus.ehu.intel.signapp.R;
 
 /**

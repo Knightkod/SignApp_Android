@@ -8,8 +8,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import eus.ehu.intel.signapp.Presentacion.CustomToast;
-import eus.ehu.intel.signapp.Presentacion.VideoButton;
+import eus.ehu.intel.signapp.presentacion.CustomToast;
+import eus.ehu.intel.signapp.presentacion.VideoButton;
 
 public class TraductorActivity extends AppCompatActivity {
 

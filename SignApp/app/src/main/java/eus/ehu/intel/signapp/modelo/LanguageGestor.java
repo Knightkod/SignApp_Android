@@ -1,4 +1,4 @@
-package eus.ehu.intel.signapp.Modelo;
+package eus.ehu.intel.signapp.modelo;
 
 import android.content.Context;
 import android.content.res.Configuration;

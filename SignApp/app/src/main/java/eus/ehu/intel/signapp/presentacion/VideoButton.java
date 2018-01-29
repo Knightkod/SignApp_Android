@@ -1,8 +1,7 @@
-package eus.ehu.intel.signapp.Presentacion;
+package eus.ehu.intel.signapp.presentacion;
 
 import android.app.Activity;
 import android.graphics.Color;
-import android.provider.Settings;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;

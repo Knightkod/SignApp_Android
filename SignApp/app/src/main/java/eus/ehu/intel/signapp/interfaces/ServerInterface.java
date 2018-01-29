@@ -1,10 +1,10 @@
-package eus.ehu.intel.signapp.Interfaces;
+package eus.ehu.intel.signapp.interfaces;
 
 import android.content.Context;
 
 import java.util.List;
 
-import eus.ehu.intel.signapp.Modelo.Forum;
+import eus.ehu.intel.signapp.modelo.Forum;
 
 /**
  * Created by iubuntu on 23/12/17.

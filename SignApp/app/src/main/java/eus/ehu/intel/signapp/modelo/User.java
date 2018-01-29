@@ -1,4 +1,4 @@
-package eus.ehu.intel.signapp.Modelo;
+package eus.ehu.intel.signapp.modelo;
 
 import java.io.Serializable;
 

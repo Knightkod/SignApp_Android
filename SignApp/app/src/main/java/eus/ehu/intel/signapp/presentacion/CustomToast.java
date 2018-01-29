@@ -1,4 +1,4 @@
-package eus.ehu.intel.signapp.Presentacion;
+package eus.ehu.intel.signapp.presentacion;
 
 import android.content.Context;
 import android.view.Gravity;

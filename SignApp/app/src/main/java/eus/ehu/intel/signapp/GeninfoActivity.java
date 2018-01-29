@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
@@ -15,8 +14,8 @@ import android.widget.TextView;
 
 import java.io.IOException;
 
-import eus.ehu.intel.signapp.Modelo.AudioPlayer;
-import eus.ehu.intel.signapp.Modelo.LanguageGestor;
+import eus.ehu.intel.signapp.modelo.AudioPlayer;
+import eus.ehu.intel.signapp.modelo.LanguageGestor;
 
 public class GeninfoActivity extends AppCompatActivity {
 

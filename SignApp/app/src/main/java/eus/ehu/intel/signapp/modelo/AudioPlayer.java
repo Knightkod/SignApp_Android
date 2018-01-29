@@ -1,12 +1,9 @@
-package eus.ehu.intel.signapp.Modelo;
+package eus.ehu.intel.signapp.modelo;
 
-import android.app.Activity;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.MediaController;
 
 import java.io.IOException;
