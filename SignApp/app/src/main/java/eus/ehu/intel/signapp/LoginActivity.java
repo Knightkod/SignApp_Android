@@ -84,6 +84,7 @@ public class LoginActivity extends AppCompatActivity {
                     Intent intent = new Intent(context, ForumActivity.class);
                     intent.putExtra(ForumActivity.LOGIN_ID, user);
                     intent.putExtra(ForumActivity.LOGIN_PASS, pass);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                     startActivity(intent);
                     CustomToast.createToast("success", context.getResources().getString(R.string.loginOK), inflater, context);
                 } else {
