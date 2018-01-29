@@ -133,10 +133,11 @@ public class GeninfoActivity extends AppCompatActivity {
                 if(audioPlayer != null){
                     int mCurrentPosition = audioPlayer.getCurrentPosition();
                     seekBar.setProgress(mCurrentPosition);
-                    if(mCurrentPosition==audioPlayer.getDuration()) {
-                        GridLayout gridLayout = (GridLayout) seekBar.getParent();
-                        ImageButton button = (ImageButton)gridLayout.getChildAt(gridLayout.indexOfChild(seekBar)-1);
+                    if((mCurrentPosition+500)>audioPlayer.getDuration()) {
+                        LinearLayout linearLayout = (LinearLayout) seekBar.getParent();
+                        ImageButton button = (ImageButton)linearLayout.getChildAt(linearLayout.indexOfChild(seekBar)-1);
                         button.setImageResource(R.drawable.play_blauw);
+                        seekBar.setProgress(0);
                     }
                 }
 
